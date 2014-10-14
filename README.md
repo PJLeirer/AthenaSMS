@@ -4,10 +4,8 @@ AthenaSMS
 Text Messaging Solution
 
 
-Please Read ALL of this file! I will not be held responsible for damage to modem hardware, it shouldn't be possible
-to do any damage but you should stay on the safe side and double check all settings (and this file) to be sure your
-modem wil work.
-
+Please Read ALL of this file! It shouldn't be possible to do any damage but you should stay on the safe side and double check all settings (and this file) to be sure your modem wil work.
+Use this software at Your Own Risk. I will not be held responsible for damage to modem hardware
 
 There are several solutions to text messaging available. Athena is not designed to be a replacement or competition to these other solutions, but could possibly be, depending on your needs. This was written before a lot of them existed and never tried to copy or match what anyone else was doing. This code has sat around for almost a year as I do not have the time to finish it. I work from home as a developer and do not have the time to finish, package, market or promote it. Don't have the desire too anymore either, but I hate it see it go to waste. So, here it is for the open source world to have it. I hope it is useful many people. Hopefully people will want to contribute.
 
@@ -65,3 +63,5 @@ The last updates made to the client were in the ‘Reports’ Tab, it is not finishe
 The ‘Info’ & ‘Modem’ Tabs are only for testing socket & modem communications.
 
 Have Fun with it. I hope it works out as a good solution for you. I encourage you to share your updates.
+
+I'm new to github, so bare with me if it takes a moment for me to get up to speed.
