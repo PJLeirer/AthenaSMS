@@ -39,10 +39,6 @@ namespace AthenaService
 
         public static String AthenaDir = @"C:\AthenaService\";
 
-        //CPL
-        public static String SirsiDir = AthenaDir + @"Sirsi\";
-        public static String holdNoticeFile = "daily_smstext_hold_notification-";
-        //public static int todaysHoldCount;
 
 
         public static EventLog mEventLog;
@@ -179,65 +175,6 @@ namespace AthenaService
             return X;
         }
 
-
-        //CPL
-        /*
-        public static bool runDailyHoldNotices()
-        {
-            bool X = false;
-
-            string date_ext = DateTime.Now.ToString("MM_dd_yyyy");
-
-            using (FileStream fis = new FileStream(SirsiDir + holdNoticeFile + date_ext, FileMode.Open))
-            {
-                try
-                {
-                    Console.WriteLine("Processing notices...");
-                    if (fis.CanRead)
-                    {
-                        String fileStr = "";
-                        int data;
-                        while ((data = fis.ReadByte()) != -1)
-                        {
-                            fileStr += (char)data;
-                        }
-
-                        string[] cr = new string[] { "\n" }; // may leave \r if it comes from windows
-                        dailyNotices = fileStr.Split(cr, StringSplitOptions.None);
-                        dailyTexts = new ArrayList();
-                        for (int i = 0; i < dailyNotices.Length; i++)
-                        {
-                            if (dailyNotices[i].Length > 0)
-                            {
-
-                                Console.WriteLine(dailyNotices[i]);
-                                string[] txts = dailyNotices[i].Split(new string[] { " | " }, StringSplitOptions.None);
-
-                                dailyTexts.Add(txts);
-
-                            }
-                        }
-
-                        String[] what = { "sysmsg", "Daily Hold Texts" };
-                        mModemManager.addToOutgoingMessages(dailyTexts, what);
-                        X = true;
-                    }
-                    else
-                    {
-                        doEventLog("Main.runDailyHoldNotices(): Failed to read " + SirsiDir + holdNoticeFile + date_ext, 0);
-                        doNotify("Athena failed to open the Daily Hold Notices file", "Program.runDailyHoldNotices(): Failed to read " + SirsiDir + holdNoticeFile + date_ext);
-                    }
-
-                }
-                catch (Exception e)
-                {
-                    doEventLog("Program.runDailyHoldNotices(): " + e.Message + "\n\n" + e.StackTrace, 0);
-                }
-                fis.Close();
-            }
-            return X;
-        }
-        */
 
 
 
