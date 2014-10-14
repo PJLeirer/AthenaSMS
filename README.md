@@ -38,6 +38,9 @@ whitespace is removed before first char from right of pipe.
 
 Notes for Everyone:
 
+The 'Windows Service' version is not currently up to date, mostly. it should be used as reference for the time being.
+The NonService version is a Console Application and has all the latest updates.
+
 You will to install cdma modem on a COM port.
 
 You will need to create the folder C:\AthenaService with subfolders bin & conf. the .exe will run anywhere but recommended to run from bin folder.
