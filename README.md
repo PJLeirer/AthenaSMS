@@ -22,7 +22,7 @@ A windows client is supplied and works! If you wish to build or add-on your own 
 
 Sending Single and Group Texts works right-out-of-the-box, If you wish to use scheduled jobs, you will need to supply the files. This can be achieved by creating a file from a script or program, or create one manually at worst.
 
-The format for batch files is: number|message<cr>(or)<cr><nl>, works for files created in unix/linux & windows
+The format for batch files is: number|message(cr)or(cr)(nl), works for files created in unix/linux & windows
 
 555-555-0000|Hello Jim
 555-555-0100|Hello Bob
