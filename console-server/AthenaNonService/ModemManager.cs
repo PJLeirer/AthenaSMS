@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*
+ * Modem Manager.
+ * holds an array of CdmaModem instances, created based on conf file.
+ * handles pool of outgoing messages
+ * sends text messages to 1st available modem, modem is unavailable from the time a text is being sent until receipt from base is recieved.
+ * incoming messages do not effect synchronization, or shouldn't.
+ * all incoming and outgoing texts are logged in DB. sql mgmt studio should be used for best results. client has some log viewing features.
+ * 
+ */
+
+
+
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

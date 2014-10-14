@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * SockSender
+ * 
+ * sub class of SockReciever for returning data on recieve, also used with broadcasting messages to connected clients
+ * 
+ */
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;

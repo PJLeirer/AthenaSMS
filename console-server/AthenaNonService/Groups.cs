@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Groups
+ * 
+ * just sends group messages, may be moved to ModemManager soon
+ * 
+ */
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

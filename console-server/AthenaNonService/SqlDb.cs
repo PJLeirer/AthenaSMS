@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * SqlDb
+ * 
+ * All SQL commands are handled in this file
+ * 
+ */
+
+
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;

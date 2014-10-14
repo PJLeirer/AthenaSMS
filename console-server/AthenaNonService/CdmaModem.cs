@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*
+ * Modem Class. all modem comunications are handled here.
+ * 
+ * this class has been tested with an MTCBA-C1-U-N3 wireless modem from multitech.
+ * any cdma modem should work with minor changes to this file.
+ * this is the only file you will need to modify for different modems.
+ * 
+ * IMPORTANT! Be sure to read the modem's manual even if you have the same model! Be absolutely sure all AT commands are correct for the device!
+ * 
+ * 
+ * */
+
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
@@ -12,11 +25,15 @@ namespace AthenaService
     class CdmaModem
     {
 
-        //debug
-        private bool isFakeModem = false; //arduino mock modem
+        // a mock modem can be programmed with a microcontroller, however without flow control, data can get lost easily
+        // 
+        private bool isFakeModem = false; //set true for mock modem settings
 
         private char CTRL_Z = (char)0x1A;
 
+        // check your modem's init AT Command options, any changes must be the exact settings. these option setting are crucial.
+        // I will add more info on these settings from the manual for MTCBA-C1-U-N3
+        private string initCommand = "AT+CNMI=2,2,0,1,0";
 
         private int BAUD = 115200;
         private String portName = null;

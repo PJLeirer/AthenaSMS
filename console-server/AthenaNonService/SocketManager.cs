@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * SocketManager
+ * 
+ * handles socket communications, uses SockSender and SockReciever classes
+ * 
+ * 
+ */
+
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * SockReciever
+ * 
+ * sub class of socket manager, handles all incoming socket data.
+ * 
+ */
+
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;

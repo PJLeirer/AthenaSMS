@@ -1,4 +1,15 @@
-﻿using AthenaService;
+﻿/*
+ * Athena SMS Windows Console Server. Released under GNU GPL. Read LICENSE file.
+ * 
+ * Main Program file. Start here. Main() is at bottom of file
+ * 
+ * 
+ */
+
+
+
+
+using AthenaService;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -361,7 +372,7 @@ namespace AthenaService
             //modemmanager must start before readconfig
             mModemManager = new ModemManager();
 
-            // read config file in c:\athena\conf\
+            // read config file
             readConfigFile();
 
             //after config
