@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bluewave"
+    android:orientation="vertical"
+    >
+    
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+		<TextView
+		    android:id="@+id/mainLabel"
+		    android:layout_width="wrap_content"
+		    android:layout_height="30dip"
+		    android:text="@string/console_title"
+		    android:textColor="#cdf8f2"
+		    android:background="#000000"
+		    android:textSize="22sp"
+		/>
+	</TableRow>
+	
+	<TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+	    <TextView
+	    	android:id="@+id/mainBlank1"
+	    	android:text="@string/login_subTitle"
+	    	android:textColor="#cdf8f2"
+		    android:background="#000000"
+	    	android:textSize="18sp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	    />
+    </TableRow>
+    
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+	    <EditText
+	        android:id="@+id/userentry"
+	        android:inputType="text"
+	        android:hint="@string/txt_username"
+	        android:layout_width="200sp"
+	        android:layout_height="wrap_content"
+	        android:background="@android:drawable/editbox_background"
+	        android:textSize="16sp"
+	        android:textColor="#000000"
+	    />
+    </TableRow>
+    
+    
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+	    <EditText
+	        android:id="@+id/passentry"
+	        android:inputType="textPassword"
+	        android:hint="@string/txt_userpass"
+	        android:layout_width="200dp"
+	        android:layout_height="wrap_content"
+	        android:background="@android:drawable/editbox_background"
+	        android:textSize="16sp"
+	        android:textColor="#000000"
+	    />
+    </TableRow>
+    
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.9"
+        android:gravity="center"
+        >
+	    <Button
+	        android:id="@+id/login_button"
+	        android:text="@string/btn_login"
+	    	style="@style/black_buttons"
+	   	/>
+    </TableRow>
+    
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.8"
+        android:gravity="center"
+        >
+	    <Button
+	        android:id="@+id/cancel_button"
+	        android:text="@string/btn_cancel"
+	    	style="@style/black_buttons"
+	    />
+	    <View
+	        android:layout_width="40dp"
+	        android:layout_height="40dp"
+	        />
+	    <Button
+	        android:id="@+id/reset_button"
+	        android:text="@string/btn_reset"
+	    	style="@style/black_buttons"
+	    />
+    </TableRow>
+</LinearLayout>
+

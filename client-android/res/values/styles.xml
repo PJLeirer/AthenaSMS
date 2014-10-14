@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+	<style name="general">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:typeface">monospace</item>
+	</style>
+	
+	<style name="MySpinner" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+        <item name="android:textColor">#cdf8f2</item>
+    </style>
+    
+	<style name="black_buttons">
+        <item name="android:layout_width">97dp</item>
+        <item name="android:layout_height">26dp</item>
+        <item name="android:textColor">#cdf8f2</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@drawable/buttonbg</item>
+	</style>
+	
+	<style name="spacer">
+	    <item name="android:layout_width">40dp</item>
+	    <item name="android:layout_height">26dp</item>
+	</style>
+	
+	<style name="black_wide_buttons">
+        <item name="android:layout_width">140dp</item>
+        <item name="android:layout_height">26dp</item>
+        <item name="android:textColor">#cdf8f2</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@drawable/buttonbg</item>
+	</style>
+    
+</resources>

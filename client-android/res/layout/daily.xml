@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bluewave"
+    android:stretchColumns="1">
+    
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+	    
+	    <TextView
+		    android:id="@+id/mainLabel"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/console_title"
+		    android:textColor="#cdf8f2"
+		    android:textSize="26sp"
+		/>
+	    
+    </TableRow>
+    
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+		
+	    <TextView
+	    	android:id="@+id/dailySubTitle"
+	    	android:text="@string/txt_todays_text"
+	    	android:textSize="22sp"
+		  	android:textColor="#cdf8f2"
+		  	android:layout_width="wrap_content"
+		  	android:layout_height="wrap_content"
+	    />
+	    
+    </TableRow>
+    
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+	    
+	    <TextView
+	    	android:id="@+id/msgsOut"
+		  	android:text="@string/txt_outgoing_msgs"
+		  	android:textColor="#cdf8f2"
+		  	android:layout_width="wrap_content"
+		  	android:layout_height="wrap_content"
+		/>
+		
+		<TextView
+		  	android:id="@+id/outTotal"
+		  	android:textColor="#cdf8f2"
+		  	android:layout_width="wrap_content"
+		  	android:layout_height="wrap_content"
+		/>
+		
+	</TableRow>
+	
+	<TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+		
+		<TextView
+		  	android:id="@+id/msgsIn"
+		  	android:text="@string/txt_incoming_msgs"
+		  	android:textColor="#cdf8f2"
+		  	android:layout_width="wrap_content"
+		  	android:layout_height="wrap_content"
+		/>
+		<TextView
+		  	android:id="@+id/inTotal"
+		  	android:textColor="#cdf8f2"
+		  	android:layout_width="wrap_content"
+		  	android:layout_height="wrap_content"
+		/>
+		
+	</TableRow>
+	
+	<TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+		
+		<Button
+			android:id="@+id/dailySendHoldsButton"
+			android:text="@string/btn_run_holds"
+        	style="@style/black_buttons"
+		/>
+		
+		<View
+		    android:layout_width="40dp"
+		  	android:layout_height="40dp"
+		    />
+		
+		<Button
+			android:id="@+id/dailyBackButton"
+		  	android:text="@string/btn_back"
+        	style="@style/black_buttons"
+		/>
+		
+	</TableRow>
+	
+</LinearLayout>
+
+
+

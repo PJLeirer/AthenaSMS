@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bluewave"
+    android:layout_gravity="center"
+    android:padding="10dp"
+>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+    >
+    
+    	<TextView
+	    	android:id="@+id/mainLabel"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	   		android:text="@string/console_title"
+	   		android:textColor="#cdf8f2"
+	   		android:textSize="26sp"
+		/>
+		
+	</TableRow>
+	
+	<TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+    >
+	  	<Spinner
+	  		android:id="@+id/groupName"
+	  		android:layout_width="180dip"
+        	android:layout_height="wrap_content"
+	  		android:digits="\\n"
+	  		android:prompt="@string/group_prompt"
+	  	/>
+	</TableRow>
+
+	
+
+	<TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+    >
+	  	
+	 	<EditText
+	 		android:id="@+id/txtMessage"
+	 		android:lines="6"
+	 		android:maxLength="200"
+	 		android:maxWidth="200dip"
+	 		android:layout_height="wrap_content"
+	 		android:layout_width="fill_parent"
+	  		android:textColor="#cdf8f2"
+	  		android:hint="@string/txt_msg"
+	  		android:textColorHint="#333d3c"
+	  		android:background="#000000"
+	  		android:alpha="0.7"
+	 	/>
+	</TableRow>
+	 
+	 
+	<TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+    >
+    	
+	  	<Button
+	  		android:id="@+id/sendGroup"
+	  		android:text="@string/btn_send"
+        	style="@style/black_buttons"
+	  	/>
+	  	
+	  	<View
+	  	    android:layout_width="40dp"
+	  	    android:layout_height="40dp"
+	  	    />
+	  	
+	 	<Button
+	 		android:id="@+id/textingBackButton"
+	  		android:text="@string/btn_back"
+	    	style="@style/black_buttons"
+	 	/>
+	 	
+	</TableRow>
+
+	
+	
+</LinearLayout>
