@@ -27,6 +27,8 @@ namespace AthenaService
         private String dbUser = "sa";  // change to new sql user
         private String dbPass = ""; // and pass
 
+
+
         private SqlConnection mConnection;
 
         public String amReady = "Not Connected!";
