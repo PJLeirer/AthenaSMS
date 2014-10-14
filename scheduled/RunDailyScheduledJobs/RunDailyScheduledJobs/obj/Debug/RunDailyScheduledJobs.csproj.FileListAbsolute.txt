@@ -1,0 +1,6 @@
+c:\users\candy\documents\visual studio 2012\Projects\RunDailyScheduledJobs\RunDailyScheduledJobs\bin\Debug\RunDailyScheduledJobs.exe.config
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\RunDailyScheduledJobs\RunDailyScheduledJobs\bin\Debug\RunDailyScheduledJobs.exe
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\RunDailyScheduledJobs\RunDailyScheduledJobs\bin\Debug\RunDailyScheduledJobs.pdb
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\RunDailyScheduledJobs\RunDailyScheduledJobs\obj\Debug\RunDailyScheduledJobs.csprojResolveAssemblyReference.cache
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\RunDailyScheduledJobs\RunDailyScheduledJobs\obj\Debug\RunDailyScheduledJobs.exe
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\RunDailyScheduledJobs\RunDailyScheduledJobs\obj\Debug\RunDailyScheduledJobs.pdb

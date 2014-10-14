@@ -4,3 +4,6 @@ c:\users\candy\documents\visual studio 2012\Projects\AthenaService\AthenaService
 c:\users\candy\documents\visual studio 2012\Projects\AthenaService\AthenaService\bin\Debug\AthenaService.pdb
 c:\users\candy\documents\visual studio 2012\Projects\AthenaService\AthenaService\obj\Debug\AthenaService.exe
 c:\users\candy\documents\visual studio 2012\Projects\AthenaService\AthenaService\obj\Debug\AthenaService.pdb
+C:\Users\pj\Documents\GitHub\AthenaSMS\service\AthenaService\bin\Debug\AthenaService.exe.config
+C:\Users\pj\Documents\GitHub\AthenaSMS\service\AthenaService\obj\Debug\AthenaService.exe
+C:\Users\pj\Documents\GitHub\AthenaSMS\service\AthenaService\obj\Debug\AthenaService.pdb

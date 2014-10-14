@@ -10,3 +10,6 @@ C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\obj\Debu
 C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\bin\Debug\AthenaNonService.exe
 C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\bin\Debug\AthenaNonService.pdb
 C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\obj\Debug\AthenaNonService.csprojResolveAssemblyReference.cache
+C:\Users\pj\Documents\GitHub\AthenaSMS\console-server\AthenaNonService\bin\Debug\AthenaNonService.exe.config
+C:\Users\pj\Documents\GitHub\AthenaSMS\console-server\AthenaNonService\obj\Debug\AthenaNonService.exe
+C:\Users\pj\Documents\GitHub\AthenaSMS\console-server\AthenaNonService\obj\Debug\AthenaNonService.pdb

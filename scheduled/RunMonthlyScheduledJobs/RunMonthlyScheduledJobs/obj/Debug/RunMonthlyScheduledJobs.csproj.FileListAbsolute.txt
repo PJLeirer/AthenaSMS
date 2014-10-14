@@ -1,0 +1,5 @@
+c:\users\candy\documents\visual studio 2012\Projects\RunMonthlyScheduledJobs\RunMonthlyScheduledJobs\bin\Debug\RunMonthlyScheduledJobs.exe.config
+c:\users\candy\documents\visual studio 2012\Projects\RunMonthlyScheduledJobs\RunMonthlyScheduledJobs\bin\Debug\RunMonthlyScheduledJobs.exe
+c:\users\candy\documents\visual studio 2012\Projects\RunMonthlyScheduledJobs\RunMonthlyScheduledJobs\bin\Debug\RunMonthlyScheduledJobs.pdb
+c:\users\candy\documents\visual studio 2012\Projects\RunMonthlyScheduledJobs\RunMonthlyScheduledJobs\obj\Debug\RunMonthlyScheduledJobs.exe
+c:\users\candy\documents\visual studio 2012\Projects\RunMonthlyScheduledJobs\RunMonthlyScheduledJobs\obj\Debug\RunMonthlyScheduledJobs.pdb
