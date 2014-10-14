@@ -1,4 +1,9 @@
-﻿using System;
+/*
+    should be unused, waiting to deprecate
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,7 +15,8 @@ namespace AthenaConsole
     public class SqlMan
     {
         public MainWindow mMainWin;
-
+        
+        private String dbHost = @"ATHENASMS\ATHENASQL";
         private String dBase = "athenasms";
         private String dbUser = "sa";  //TODO change to new sql user i created
         private String dbPass = ""; // and pass
@@ -23,7 +29,7 @@ namespace AthenaConsole
         public void ShowOutgoingtexts()
         {
             /*
-            using (SqlConnection conn = new SqlConnection("integrated security=SSPI;data source=" + @"CANDY-PC\ATHENASQL" + ";Persist Security Info=false;UID=" + dbUser + ";PWD=" + dbPass + ";Initial Catalog=" + dBase + ";"))
+            using (SqlConnection conn = new SqlConnection("integrated security=SSPI;data source=" + dbHost + ";Persist Security Info=false;UID=" + dbUser + ";PWD=" + dbPass + ";Initial Catalog=" + dBase + ";"))
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand("select * from OutgoingTexts;", conn))
@@ -58,7 +64,7 @@ namespace AthenaConsole
         public void ShowIncomingTexts()
         {
             /*
-            using (SqlConnection conn = new SqlConnection("integrated security=SSPI;data source=" + @"CANDY-PC\ATHENASQL" + ";Persist Security Info=false;UID=" + dbUser + ";PWD=" + dbPass + ";Initial Catalog=" + dBase + ";"))
+            using (SqlConnection conn = new SqlConnection("integrated security=SSPI;data source=" + dbHost" + ";Persist Security Info=false;UID=" + dbUser + ";PWD=" + dbPass + ";Initial Catalog=" + dBase + ";"))
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand("select * from IncomingTexts;", conn))
@@ -93,7 +99,7 @@ namespace AthenaConsole
         public void ShowFailedTexts()
         {
             /*
-            using (SqlConnection conn = new SqlConnection("integrated security=SSPI;data source=" + @"CANDY-PC\ATHENASQL" + ";Persist Security Info=false;UID=" + dbUser + ";PWD=" + dbPass + ";Initial Catalog=" + dBase + ";"))
+            using (SqlConnection conn = new SqlConnection("integrated security=SSPI;data source=" + dbHost + ";Persist Security Info=false;UID=" + dbUser + ";PWD=" + dbPass + ";Initial Catalog=" + dBase + ";"))
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand("select * from FailedOutgoing;", conn))
