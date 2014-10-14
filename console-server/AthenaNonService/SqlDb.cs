@@ -22,8 +22,9 @@ namespace AthenaService
     {
 
         // custumizable for client
-        private String dBase = "athenaservice";
-        private String dbUser = "sa";  //TODO change to new sql user i created
+        private String dbHost = @"ATHENASMS\ATHENASQL"; // host name and sql instance
+        private String dBase = "athenaservice"; // database name
+        private String dbUser = "sa";  // change to new sql user
         private String dbPass = ""; // and pass
 
         private SqlConnection mConnection;
@@ -102,7 +103,7 @@ namespace AthenaService
             }
             else
             {
-                host = @"CANDY-PC\ATHENASQL";
+                host = dbHost;
             }
 
             mConnection = new SqlConnection("integrated security=SSPI;data source=" + host + ";Persist Security Info=false;UID=" + dbUser + ";PWD=" + dbPass + ";Initial Catalog=" + dBase + ";");
