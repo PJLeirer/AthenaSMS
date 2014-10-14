@@ -32,8 +32,8 @@ namespace AthenaService
         public static String AthenaDir = @"C:\Athena\";
         public static bool notifyOnStartup = false;
 
-        //CPL
-        public static String SirsiDir = AthenaDir + @"Sirsi\";
+        
+        public static String FileDir = AthenaDir + @"Sirsi\";
         public static String holdNoticeFile = "daily_smstext_hold_notification-";
         public static String[] todaysHoldNotices;
         public static ArrayList todaysHoldTexts;
@@ -49,7 +49,7 @@ namespace AthenaService
 
 
 
-        //CPL
+        
 
         public static bool runDailyHoldNotices()
         {
@@ -61,7 +61,7 @@ namespace AthenaService
 
                 string date_ext = DateTime.Now.ToString("MM_dd_yyyy");
 
-                FileStream fis = new FileStream(SirsiDir + holdNoticeFile + date_ext, FileMode.Open);
+                FileStream fis = new FileStream(FileDir + holdNoticeFile + date_ext, FileMode.Open);
                 Console.WriteLine("Processing notices...");
                 if (fis.CanRead)
                 {
@@ -95,8 +95,8 @@ namespace AthenaService
                 }
                 else
                 {
-                    doEventLog("Main.runDailyHoldNotices(): Failed to read " + SirsiDir + holdNoticeFile + date_ext, 0);
-                    sendMail("Athena failed to open the Daily Hold Notices file", "Program.runDailyHoldNotices(): Failed to read " + SirsiDir + holdNoticeFile + date_ext);
+                    doEventLog("Main.runDailyHoldNotices(): Failed to read " + FileDir + holdNoticeFile + date_ext, 0);
+                    sendMail("Athena failed to open the Daily Hold Notices file", "Program.runDailyHoldNotices(): Failed to read " + FileDir + holdNoticeFile + date_ext);
                 }
 
             }
