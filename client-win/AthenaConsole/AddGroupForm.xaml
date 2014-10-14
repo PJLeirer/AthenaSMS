@@ -1,0 +1,12 @@
+﻿<Window x:Class="AthenaConsole.AddGroupForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Group" Height="186.572" Width="241.696" ResizeMode="NoResize">
+    <Grid Name="gridAddGroupFrom" Background="AliceBlue" FocusManager.FocusedElement="{Binding ElementName=tbAddGroupName}">
+        <Label Content="Group Name" HorizontalAlignment="Center" Margin="79,32,35,0" VerticalAlignment="Top" Width="122"/>
+        <TextBox Name="tbAddGroupName" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="23" Margin="69,66,62,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+        <Button Content="Add" Click="OnAddGroupClicked" HorizontalAlignment="Left" Margin="91,106,0,0" VerticalAlignment="Top" Width="57" IsDefault="True"/>
+        <Label Content="Add Group" HorizontalAlignment="Left" Margin="81,2,0,0" VerticalAlignment="Top" FontSize="14" Width="105"/>
+
+    </Grid>
+</Window>

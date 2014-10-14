@@ -1,0 +1,6 @@
+c:\users\candy\documents\visual studio 2012\Projects\AthenaService\AthenaService\bin\Debug\AthenaService.exe.config
+c:\users\candy\documents\visual studio 2012\Projects\AthenaService\AthenaService\obj\Debug\AthenaService.csprojResolveAssemblyReference.cache
+c:\users\candy\documents\visual studio 2012\Projects\AthenaService\AthenaService\bin\Debug\AthenaService.exe
+c:\users\candy\documents\visual studio 2012\Projects\AthenaService\AthenaService\bin\Debug\AthenaService.pdb
+c:\users\candy\documents\visual studio 2012\Projects\AthenaService\AthenaService\obj\Debug\AthenaService.exe
+c:\users\candy\documents\visual studio 2012\Projects\AthenaService\AthenaService\obj\Debug\AthenaService.pdb

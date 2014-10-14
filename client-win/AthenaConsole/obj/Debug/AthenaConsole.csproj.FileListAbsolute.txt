@@ -1,0 +1,62 @@
+c:\users\candy\documents\visual studio 2012\Projects\AthenaConsole\AthenaConsole\bin\Debug\AthenaConsole.exe.config
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AthenaConsole.csprojResolveAssemblyReference.cache
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\MainWindow.baml
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\MainWindow.g.cs
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\App.g.cs
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AthenaConsole_MarkupCompile.cache
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AthenaConsole.g.resources
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AthenaConsole.Properties.Resources.resources
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AthenaConsole.csproj.GenerateResource.Cache
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\bin\Debug\AthenaConsole.exe
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\bin\Debug\AthenaConsole.pdb
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AthenaConsole.exe
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AthenaConsole.pdb
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\LoginWin.baml
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\LoginWin.g.cs
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AddUserForm.baml
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AddUserForm.g.cs
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\EditUserForm.baml
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\EditUserForm.g.cs
+C:\Users\Candy\documents\visual studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\OptionsForm.baml
+C:\Users\Candy\documents\visual studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\OptionsForm.g.cs
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AddContactForm.baml
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\EditContactForm.baml
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AddContactForm.g.cs
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\EditContactForm.g.cs
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AddGroupForm.baml
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AddGroupForm.g.cs
+C:\Users\Candy\documents\visual studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AddScheduledJobForm.baml
+C:\Users\Candy\documents\visual studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\AddScheduledJobForm.g.cs
+C:\Users\Candy\documents\visual studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\EditScheduledJobForm.baml
+C:\Users\Candy\documents\visual studio 2012\Projects\AthenaConsole\AthenaConsole\obj\Debug\EditScheduledJobForm.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\bin\Debug\AthenaConsole.exe.config
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AthenaConsole.exe
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AthenaConsole.pdb
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\bin\Debug\AthenaConsole.exe
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\bin\Debug\AthenaConsole.pdb
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AthenaConsole.csprojResolveAssemblyReference.cache
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AddContactForm.baml
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AddGroupForm.baml
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AddScheduledJobForm.baml
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AddUserForm.baml
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\EditContactForm.baml
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\EditScheduledJobForm.baml
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\EditUserForm.baml
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\LoginWin.baml
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\MainWindow.baml
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\OptionsForm.baml
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AddContactForm.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AddGroupForm.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AddScheduledJobForm.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AddUserForm.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\EditContactForm.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\EditScheduledJobForm.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\EditUserForm.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\LoginWin.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\MainWindow.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\OptionsForm.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\App.g.cs
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AthenaConsole_MarkupCompile.cache
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AthenaConsole.g.resources
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AthenaConsole.Properties.Resources.resources
+C:\Users\pj\Documents\GitHub\Athena-SMS\client-win\AthenaConsole\obj\Debug\AthenaConsole.csproj.GenerateResource.Cache

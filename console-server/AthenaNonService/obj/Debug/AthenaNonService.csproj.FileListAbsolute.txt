@@ -1,0 +1,12 @@
+c:\users\candy\documents\visual studio 2012\Projects\AthenaNonService\AthenaNonService\bin\Debug\AthenaNonService.exe.config
+c:\users\candy\documents\visual studio 2012\Projects\AthenaNonService\AthenaNonService\bin\Debug\AthenaNonService.exe
+c:\users\candy\documents\visual studio 2012\Projects\AthenaNonService\AthenaNonService\bin\Debug\AthenaNonService.pdb
+c:\users\candy\documents\visual studio 2012\Projects\AthenaNonService\AthenaNonService\obj\Debug\AthenaNonService.exe
+c:\users\candy\documents\visual studio 2012\Projects\AthenaNonService\AthenaNonService\obj\Debug\AthenaNonService.pdb
+C:\Users\Candy\Documents\Visual Studio 2012\Projects\AthenaNonService\AthenaNonService\obj\Debug\AthenaNonService.csprojResolveAssemblyReference.cache
+C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\bin\Debug\AthenaNonService.exe.config
+C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\obj\Debug\AthenaNonService.exe
+C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\obj\Debug\AthenaNonService.pdb
+C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\bin\Debug\AthenaNonService.exe
+C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\bin\Debug\AthenaNonService.pdb
+C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\obj\Debug\AthenaNonService.csprojResolveAssemblyReference.cache

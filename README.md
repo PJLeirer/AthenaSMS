@@ -55,6 +55,8 @@ I will update this more and maybe add more docs for communicating with the serve
 
 Notes for Developers:
 
+I'm bad at writing comments and usually work solo, so there is little to no comments, but the code should make sense
+
 The last updates made to the client were in the ‘Reports’ Tab, it is not finished and only some parts are working.
 
 The ‘Info’ & ‘Modem’ Tabs are only for testing socket & modem communications.
