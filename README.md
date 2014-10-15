@@ -31,11 +31,11 @@ Sending Single and Group Texts works right-out-of-the-box, If you wish to use sc
 
 The format for batch files is: number|message(cr)or(cr)(nl), works for files created in unix/linux & windows
 
-555-555-0000|Hello Jim
-555-555-0100|Hello Bob
-5555551234 | Hello World
+555-555-0000|Hello Jim<br/>
+555-555-0100|Hello Bob<br/>
+5555551234 | Hello World<br/>
 
-all the above lines are valid.
+all the above lines are valid( ignore '<br/>' tags, just for html view).
 a new line on the end should be fine but not sure
 whitespace and dashes are removed from left of pipe.
 whitespace is removed before first char from right of pipe.
@@ -50,13 +50,13 @@ You will to install cdma modem on a COM port.
 
 You will need to create the folder C:\AthenaService with subfolders bin & conf. the .exe will run anywhere but recommended to run from bin folder.
 
-On first run, a default .conf file will be created in the conf folder and event viewer application logging info is setup. Stop or Close the server. Open the conf file and edit all that apply.  Set the Com port to whatever port you installed the modem on. Multiple modems have not been tested but theoretically should work. If you wish to try 2 or more modems,  just copy/paste new ‘MODEM:COM?’ lines, there is no limit set.
+On first run, a default .conf file will be created in the conf folder and event viewer application logging info is setup. Stop or Close the server. Open the conf file and edit all that apply.  Set the Com port to whatever port you installed the modem on. Multiple modems have not been tested but theoretically should work. If you wish to try 2 or more modems,  just copy/paste new â€˜MODEM:COM?â€™ lines, there is no limit set.
 
-Before you buy or install a modem, take a good look at the CdmaModem.cs file, particularly the init and shutdown ‘AT Command’ strings. These may be different per model. I highly advise checking that all the AT commands are the proper commands for your modem. They should be standard and compliant across the board
+Before you buy or install a modem, take a good look at the CdmaModem.cs file, particularly the init and shutdown â€˜AT Commandâ€™ strings. These may be different per model. I highly advise checking that all the AT commands are the proper commands for your modem. They should be standard and compliant across the board
 
 Open SqlDb.cs to check database setting. Create an MSSQL database and use what the class uses for a db name or edit class to use a different db name. Once the DB is setup and Athena is able to connect, all the tables will be created. Anytime a table is missing, Athena will re-recreate it on startup.
 
-Check your Event Viewer if you have any problems, installing or otherwise. Info, Warnings & Errors are all logged in EventViewer under AtheneServiceLog in ‘Applications’.
+Check your Event Viewer if you have any problems, installing or otherwise. Info, Warnings & Errors are all logged in EventViewer under AtheneServiceLog in â€˜Applicationsâ€™.
 
 I will update this more and maybe add more docs for communicating with the server.
 
@@ -65,9 +65,9 @@ Notes for Developers:
 
 I'm bad at writing comments and usually work solo, so there is little to no comments, but the code should make sense
 
-The last updates made to the client were in the ‘Reports’ Tab, it is not finished and only some parts are working.
+The last updates made to the client were in the â€˜Reportsâ€™ Tab, it is not finished and only some parts are working.
 
-The ‘Info’ & ‘Modem’ Tabs are only for testing socket & modem communications.
+The â€˜Infoâ€™ & â€˜Modemâ€™ Tabs are only for testing socket & modem communications.
 
 Have Fun with it. I hope it works out as a good solution for you. I encourage you to share your updates.
 
