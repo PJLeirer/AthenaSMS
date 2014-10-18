@@ -35,8 +35,8 @@ The format for batch files is: number|message(cr)or(cr)(nl), works for files cre
 555-555-0100|Hello Bob<br/>
 5555551234 | Hello World<br/>
 
-all the above lines are valid( ignore '<br/>' tags, just for html view).
-a new line on the end should be fine but not sure
+all the above lines are valid( ignore 'break' tags, just for html view).
+a new line on the end should be fine but not sure. 
 whitespace and dashes are removed from left of pipe.
 whitespace is removed before first char from right of pipe.
 
