@@ -16,7 +16,7 @@ namespace AthenaCore
         public SocketManager mSocketManager;
         public ModemManager mModemManager;
 
-        //public EventLog mEventLog;
+        public EventLog mEventLog;
 
         public Core()
         {
@@ -173,8 +173,6 @@ namespace AthenaCore
 
         public void doEventLog(String msg, int l)
         {
-            doLogFile(msg, 0);
-            /*
             try
             {
                 switch (l)
@@ -194,7 +192,7 @@ namespace AthenaCore
             {
                 doLogFile(e.Message, 0);
             }
-            */
+            
         }
         public void doLogFile(String msg, int l)
         {

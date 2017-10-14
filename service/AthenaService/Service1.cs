@@ -22,12 +22,14 @@ namespace AthenaService
 
         protected override void OnStart(string[] args)
         {
-            // log
-            //SmsCore.mEventLog = new EventLog();
-            //SmsCore.mEventLog.Source = "AthenaSrvLog";
-            //SmsCore.mEventLog.Log = "Athena Service Log";
 
             SmsCore = new Core();
+
+            // log
+            SmsCore.mEventLog = new EventLog();
+            SmsCore.mEventLog.Source = "AthenaSrvLog";
+            SmsCore.mEventLog.Log = "Athena Service Log";
+
         }
 
         protected override void OnStop()
