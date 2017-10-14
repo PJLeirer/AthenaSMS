@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using AthenaCore;
+using System.Diagnostics;
 
 namespace AthenaService
 {
     public partial class Service1 : ServiceBase
     {
+
+        private Core SmsCore;
         public Service1()
         {
             InitializeComponent();
@@ -20,18 +23,18 @@ namespace AthenaService
         protected override void OnStart(string[] args)
         {
             // log
-            Program.mEventLog = new EventLog();
-            Program.mEventLog.Source = "AthenaSrvLog";
-            Program.mEventLog.Log = "Athena Service Log";
+            //SmsCore.mEventLog = new EventLog();
+            //SmsCore.mEventLog.Source = "AthenaSrvLog";
+            //SmsCore.mEventLog.Log = "Athena Service Log";
 
-            // run startup
-	        //Program.StartUp(); // not exist!
+            SmsCore = new Core();
         }
 
         protected override void OnStop()
         {
 
-            Program.ShutDown();
+            SmsCore.ShutDown();
+            SmsCore = null;
         }
     }
 }
