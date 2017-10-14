@@ -56,7 +56,7 @@ namespace AthenaService
             }
         }
 
-        public void processOutgoingMessages()
+        private void processOutgoingMessages()
         {
 
             while (outgoingMessages.Count > 0)

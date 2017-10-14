@@ -13,12 +13,12 @@ namespace AthenaService
     {
 
         //debug
-        private bool isFakeModem = false; //arduino mock modem
+        private bool isMockModem = false; //arduino mock modem
         //private byte CTRL_W = (byte)0x17;
         //private byte SHIFT_OUT = (byte)0x0E;
         //private byte SHIFT_IN = (byte)0x0F;
 
-        private char CTRL_Z = (char)0x1A;
+        protected static char CTRL_Z = (char)0x1A;
 
         /*
         //stats report codes
@@ -74,37 +74,98 @@ namespace AthenaService
 
         private int BAUD = 115200;
         private String portName = null;
-        public bool modemReady = false;
-        public bool offHook = false;
+        public static bool modemReady = false;
+        public static bool offHook = false;
         public SerialPort serialPort = null;
 
         public bool isReading = false;
 
-        private String currentNumber = null;
-        private String currentMessage = null;
-        public int myNumber;
+        private static String currentNumber = null;
+        private static String currentMessage = null;
+        public static int myNumber;
 
         public String[] currentSms = new String[2];
         public bool installedProperly = false;
 
-        public StreamWriter mModemLog;
+        public static StreamWriter mModemLog;
 
-        String[] seperator0 = new String[] { "\r\n\r\n" };
-        String[] seperator1 = new String[] { "\r\n" };
-        String[] seperator2 = new String[] { "," };
-        String[] seperator3 = new String[] { " " };
-        String[] seperator4 = new String[] { ":" };
+        static String[] seperator0 = new String[] { "\r\n\r\n" };
+        static String[] seperator1 = new String[] { "\r\n" };
+        static String[] seperator2 = new String[] { "," };
+        static String[] seperator3 = new String[] { " " };
+        static String[] seperator4 = new String[] { ":" };
+
+        private MockModem mockModem;
 
 
         public CdmaModem(String port, int num)
         {
-            portName = port;
-            myNumber = num;
+            
 
-            initModem();
+            try
+            {
+
+                portName = port;
+                myNumber = num;
+
+                isMockModem = portName.StartsWith("DMY");
+
+                if (isMockModem)
+                {
+                    /*serialPort = new SerialPort(portName, 9600, Parity.None, 8, StopBits.One);
+                    serialPort.ReadTimeout = 8000;
+                    serialPort.WriteTimeout = 8000;
+                    serialPort.DtrEnable = false;
+                    serialPort.RtsEnable = false;*/
+
+                    mockModem = new MockModem(portName);
+
+                }
+                else
+                {
+                    serialPort = new SerialPort(portName, BAUD, Parity.None, 8, StopBits.One);
+                    serialPort.RtsEnable = true;
+                    //serialPort.DtrEnable = true;
+                    //serialPort.Handshake = Handshake.RequestToSend;
+                    serialPort.ReadTimeout = 500;
+                    serialPort.WriteTimeout = 500;
+
+                    serialPort.Open();
+
+                    serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
+                }
+
+
+
+                //DateTime time = DateTime.Now;
+                //string fn = time.ToString("MM-dd-yyyy");
+                //mModemLog = new StreamWriter(Program.AthenaDir + @"log\modem" + myNumber + "_" + fn, true);
+
+
+
+                Thread.Sleep(1500);
+
+                WriteToModem("ATE0");
+                //doModemLog("ATE0", 0);
+                //serialPort.Write("ATE0\r");
+
+                Thread.Sleep(900);
+
+                WriteToModem("AT+CNMI=2,2,0,1,0");
+                //doModemLog("AT+CNMI=2,2,0,1,0", 0);
+                //serialPort.Write("AT+CNMI=2,2,0,1,0\r");
+
+                installedProperly = true;
+                modemReady = true;
+
+            }
+            catch (Exception e)
+            {
+                Program.doEventLog("CdmaModem.initModem: " + e.Message + "\r\n" + e.StackTrace, 0);
+            }
         }
 
-        private void doModemLog(String s, int n) // 1=in, 0=out
+        protected static void doModemLog(String s, int n) // 1=in, 0=out
         {
             try
             {
@@ -137,54 +198,7 @@ namespace AthenaService
 
         private void initModem()
         {
-            try
-            {
-                if (isFakeModem)
-                {
-                    serialPort = new SerialPort(portName, 9600, Parity.None, 8, StopBits.One);
-                    serialPort.ReadTimeout = 8000;
-                    serialPort.WriteTimeout = 8000;
-                    serialPort.DtrEnable = false;
-                    serialPort.RtsEnable = false;
-                }
-                else
-                {
-                    serialPort = new SerialPort(portName, BAUD, Parity.None, 8, StopBits.One);
-                    serialPort.RtsEnable = true;
-                    //serialPort.DtrEnable = true;
-                    //serialPort.Handshake = Handshake.RequestToSend;
-                    serialPort.ReadTimeout = 500;
-                    serialPort.WriteTimeout = 500;
-                }
-
-                serialPort.Open();
-
-                serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
-
-                //DateTime time = DateTime.Now;
-                //string fn = time.ToString("MM-dd-yyyy");
-                //mModemLog = new StreamWriter(Program.AthenaDir + @"log\modem" + myNumber + "_" + fn, true);
-
-
-
-                Thread.Sleep(1500);
-
-                doModemLog("ATE0", 0);
-                serialPort.Write("ATE0\r");
-
-                Thread.Sleep(900);
-
-                doModemLog("AT+CNMI=2,2,0,1,0", 0);
-                serialPort.Write("AT+CNMI=2,2,0,1,0\r");
-
-                installedProperly = true;
-                modemReady = true;
-
-            }
-            catch (Exception e)
-            {
-                Program.doEventLog("CdmaModem.initModem: " + e.Message + "\r\n" + e.StackTrace, 0);
-            }
+            
 
         }
 
@@ -204,74 +218,9 @@ namespace AthenaService
                 input = sb.ToString();
 
 
-                doModemLog(input, 1);
-
-
-
 
                 // parse
-                String[] inAT = input.Split(seperator0, StringSplitOptions.None);
-
-                for (int i = 0; i < inAT.Length; i++)
-                {
-
-                    if (inAT[i].Contains("+WANS"))
-                    {
-                        modemReady = false;
-                        offHook = true;
-                    }
-
-                    if (inAT[i].Contains("+CMGS"))
-                    {
-                        //run to make sure it's splitting right
-                        String[] cmgsInfo = inAT[i].Split(seperator4, StringSplitOptions.None);
-                        Program.mSqlDb.addOutgoingEntry(myNumber, cmgsInfo[1].Trim(), currentNumber, currentMessage);
-                    }
-
-                    if (inAT[i].Contains("ERROR"))
-                    {
-                        modemReady = true;
-                        offHook = false;
-                        Program.doEventLog("ERROR from modem on current text num: '" +
-                                currentNumber + "' msg:" + currentMessage + " at " +
-                                Program.mSqlDb.getTimeStamp(), 0);
-                        Program.mSqlDb.failedOutgoing(currentNumber, currentMessage);
-                    }
-
-                    if (inAT[i].Contains("+CDS:"))
-                    {
-                        modemReady = true;
-                        offHook = false;
-                        Program.mSqlDb.updateOutgoingEntryReport(myNumber, inAT[i]);
-                    }
-
-                    if (inAT[i].Contains("+CMT:"))
-                    {
-                        String[] incomingMsg = inAT[i].Split(seperator1, StringSplitOptions.None);
-                        String[] msgInfo = incomingMsg[1].Split(seperator2, StringSplitOptions.None);
-
-                        String pNum = "?";
-                        if (msgInfo.Length > 7)
-                        {
-                            pNum = msgInfo[7].Replace("\"", "");
-                        }
-                        Program.mSqlDb.addIncomingEntry(pNum, incomingMsg[2]);
-                    }
-
-                    if (inAT[i].Contains("+WEND: 25"))
-                    {
-                        offHook = false;
-                        modemReady = true;
-                    }
-
-                    if (inAT[i].Contains("+WIND: 10"))
-                    {
-                        //??????
-                    }
-
-
-                }    ///////////////inAT loop
-
+                ParseModemResponse(input);
             }
             catch (Exception e)
             {
@@ -298,11 +247,12 @@ namespace AthenaService
             try
             {
 
-                doModemLog("AT+CMGS=\"" + num + "\"", 0);
-                serialPort.Write("AT+CMGS=\"" + num + "\"\r");
+                WriteToModem("AT+CMGS=\"" + num + "\"\r");
+                //doModemLog("AT+CMGS=\"" + num + "\"", 0);
+                //serialPort.Write("AT+CMGS=\"" + num + "\"\r");
 
 
-                if (isFakeModem)
+                if (isMockModem)
                 {
                     Thread.Sleep(4000);
                 }
@@ -311,8 +261,9 @@ namespace AthenaService
                     Thread.Sleep(2000);
                 }
 
-                doModemLog(msg + CTRL_Z, 0);
-                serialPort.Write(msg + CTRL_Z);
+                WriteToModem(msg + CTRL_Z);
+                //doModemLog(msg + CTRL_Z, 0);
+                //serialPort.Write(msg + CTRL_Z);
 
                 //Thread.Sleep(1000);
                 modemReady = true;
@@ -322,6 +273,154 @@ namespace AthenaService
             {
                 Program.doEventLog("CdmaModem.sendSMS(): " + e.Message + "\r\n" + e.StackTrace, 0);
             }
+        }
+
+
+        private void WriteToModem(string msg)
+        {
+            try
+            {
+                doModemLog(msg, 0);
+                if(isMockModem)
+                {
+                    mockModem.Write(msg);
+                }
+                else
+                {
+                    serialPort.Write(msg);
+                }
+                
+            }
+            catch(Exception e)
+            {
+                doModemLog("Error: " + e.Message, 0);
+            }
+        }
+
+
+
+        public static void ParseModemResponse(string input)
+        {
+            doModemLog(input, 1);
+
+            String[] inAT = input.Split(seperator0, StringSplitOptions.None);
+
+            for (int i = 0; i < inAT.Length; i++)
+            {
+
+                if (inAT[i].Contains("+WANS"))
+                {
+                    modemReady = false;
+                    offHook = true;
+                }
+
+                if (inAT[i].Contains("+CMGS"))
+                {
+                    //run to make sure it's splitting right
+                    String[] cmgsInfo = inAT[i].Split(seperator4, StringSplitOptions.None);
+                    Program.mSqlDb.addOutgoingEntry(myNumber, cmgsInfo[1].Trim(), currentNumber, currentMessage);
+                }
+
+                if (inAT[i].Contains("ERROR"))
+                {
+                    modemReady = true;
+                    offHook = false;
+                    Program.doEventLog("ERROR from modem on current text num: '" +
+                            currentNumber + "' msg:" + currentMessage + " at " +
+                            Program.mSqlDb.getTimeStamp(), 0);
+                    Program.mSqlDb.failedOutgoing(currentNumber, currentMessage);
+                }
+
+                if (inAT[i].Contains("+CDS:"))
+                {
+                    modemReady = true;
+                    offHook = false;
+                    Program.mSqlDb.updateOutgoingEntryReport(myNumber, inAT[i]);
+                }
+
+                if (inAT[i].Contains("+CMT:"))
+                {
+                    String[] incomingMsg = inAT[i].Split(seperator1, StringSplitOptions.None);
+                    String[] msgInfo = incomingMsg[1].Split(seperator2, StringSplitOptions.None);
+
+                    String pNum = "?";
+                    if (msgInfo.Length > 7)
+                    {
+                        pNum = msgInfo[7].Replace("\"", "");
+                    }
+                    Program.mSqlDb.addIncomingEntry(pNum, incomingMsg[2]);
+                }
+
+                if (inAT[i].Contains("+WEND: 25"))
+                {
+                    offHook = false;
+                    modemReady = true;
+                }
+
+                if (inAT[i].Contains("+WIND: 10"))
+                {
+                    //??????
+                }
+
+
+            }    ///////////////inAT loop
+
+        }
+
+
+
+
+        /// Mock Modem: in case you don't have a real modem yet!
+
+
+        private class MockModem
+        {
+            //private char CTRL_Z = (char)0x1A;
+
+            public MockModem(string portName)
+            {
+
+            }
+
+            public void Write(string msg)
+            {
+                //doModemLog(msg, 0);
+                
+            }
+
+            private string DoModemMessage(string msg)
+            {
+                string result = "";
+                try
+                {
+                    if (msg.StartsWith("AT+CNMI"))
+                    {
+                        ParseModemResponse("OK");
+                    }
+                    else if (msg.StartsWith("ATE0"))
+                    {
+                        ParseModemResponse("OK");
+                    }
+                    else if (msg.StartsWith("AT+CMGS"))
+                    {
+                       // DataRecieved("OK");
+                    }
+                    else if (msg.EndsWith(CTRL_Z))
+                    {
+                        ParseModemResponse("+CMGS: 1");
+
+                        Thread.Sleep(100);
+                        ParseModemResponse("+CDS:2,1,\"8582431439\",129,\"02/05/17,10 :14 :17\",\"02/05/17,10 :14 :27\",32768");
+                    }
+                }
+                catch(Exception e)
+                {
+                    doModemLog("Error: " + e.Message, 1);
+                    ParseModemResponse("ERROR");
+                }
+                return result;
+            }
+
         }
 
     }

@@ -15,7 +15,7 @@ namespace AthenaService
         // custumizable for client
         private String dBase = "athenasms";
         private String dbUser = "sa";  //TODO change to new sql user i created
-        private String dbPass = ""; // and pass
+        private String dbPass = "7grinch5"; // and pass
 
         private SqlConnection mConnection;
 

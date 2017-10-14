@@ -25,7 +25,7 @@ namespace AthenaService
             Program.mEventLog.Log = "Athena Service Log";
 
             // run startup
-	    Program.StartUp();
+	        //Program.StartUp(); // not exist!
         }
 
         protected override void OnStop()
