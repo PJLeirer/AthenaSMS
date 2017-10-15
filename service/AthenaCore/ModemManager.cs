@@ -34,7 +34,7 @@ namespace AthenaCore
             doRun = false;
             for (int i = 0; i < myModems.Count; i++)
             {
-                CdmaModem l = (CdmaModem)myModems[i];
+                IModem l = (IModem)myModems[i];
                 l.ShutDown();
             }
             //myModems = null;
@@ -93,10 +93,24 @@ namespace AthenaCore
 
         public void addModem(String portName)
         {
+            Console.WriteLine("addModem(" + portName + ")");
             lock (myModems.SyncRoot)
             {
-                CdmaModem modem = new CdmaModem(mCore, portName, modemCount);
-                if (modem.installedProperly && modem.modemReady)
+
+                // create modem
+                IModem modem;
+                if (portName.StartsWith("API"))
+                {
+                    // change this to custom modem class
+                    modem = new ApiModem(mCore, portName, modemCount);
+                }
+                else
+                {
+                    modem = new CdmaModem(mCore, portName, modemCount);
+                }
+                
+
+                if (modem.IsInstalledProperly() && modem.IsModemReady())
                 {
                     myModems.Add(modem);
                     mCore.doEventLog("ModemManager.addModem: Adding Modem#" + modemCount + " on " + portName, 2);
@@ -108,6 +122,7 @@ namespace AthenaCore
                     mCore.doEventLog("ModemManager.addModem: Modem Failed to install properly", 0);
                 }
             }
+            Console.WriteLine("end of addModem");
         }
 
 
@@ -124,8 +139,8 @@ namespace AthenaCore
                     {
                         i = 0;
                     }
-                    CdmaModem modem = (CdmaModem)myModems[i];
-                    if (modem.modemReady && !modem.offHook)
+                    IModem modem = (IModem)myModems[i];
+                    if (modem.IsModemReady() && !modem.IsOffhook())
                     {
                         m = i;
                         i = myModems.Count;
@@ -135,7 +150,7 @@ namespace AthenaCore
                 if (m >= 0)
                 {
                     //if (Resources._debug) { Console.WriteLine(num + "|" + msg); }
-                    CdmaModem modem = (CdmaModem)myModems[m];
+                    IModem modem = (IModem)myModems[m];
                     modem.sendSMS(num, msg);
                 }
                 else

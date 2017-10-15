@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AthenaCore
 {
-    class CdmaModem
+    public class CdmaModem : IModem
     {
 
         //debug
@@ -74,18 +74,41 @@ namespace AthenaCore
 
         private int BAUD = 115200;
         private String portName = null;
-        public bool modemReady = false;
-        public bool offHook = false;
+        public string GetMyPortName()
+        {
+            return new String(portName.ToCharArray());
+        }
+        private bool modemReady = false;
+        public bool IsModemReady()
+        {
+            return modemReady.Equals(true);
+        }
+
+        private bool offHook = false;
+        public bool IsOffhook()
+        {
+            return offHook.Equals(true);
+        }
+
         public SerialPort serialPort = null;
 
         public bool isReading = false;
 
         private String currentNumber = null;
         private String currentMessage = null;
-        public int myNumber;
+        private int myNumber;
+        public int GetMyNumber()
+        {
+            return (myNumber);
+        }
 
         public String[] currentSms = new String[2];
-        public bool installedProperly = false;
+
+        private bool installedProperly = false;
+        public bool IsInstalledProperly()
+        {
+            return installedProperly.Equals(true);
+        }
 
         public StreamWriter mModemLog;
 

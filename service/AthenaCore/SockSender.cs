@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AthenaCore
 {
-    class SockSender
+    public class SockSender
     {
 
         StreamWriter mWriter;

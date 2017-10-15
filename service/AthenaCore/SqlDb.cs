@@ -38,25 +38,40 @@ namespace AthenaCore
 
         public SqlDb(Core core)
         {
-            mCore = core;
-            if (Resources.mSqlHost != null)
+            try
             {
-                host = Resources.mSqlHost;
-            }
-            else
-            {
-                host = @"ATHENASMS\ATHENASQL";
-            }
+                Console.WriteLine("starting SqlDb...");
+                mCore = core;
+                if (Resources.mSqlHost != null)
+                {
+                    host = Resources.mSqlHost;
+                }
+                else
+                {
+                    host = @"127.0.0.1\SQLEXPRESS";
+                }
 
-            mConnection = new SqlConnection("integrated security=SSPI;data source=" + host + ";Persist Security Info=false;UID=" + dbUser + ";PWD=" + dbPass + ";Initial Catalog=" + dBase + ";");
+                Console.WriteLine("set host to '" + host + "'");
 
-            if (Connect())
-            {
-                amReady = "Connected!";
+                mConnection = new SqlConnection("integrated security=SSPI;data source=" + host + ";Persist Security Info=false;UID=" + dbUser + ";PWD=" + dbPass + ";Initial Catalog=" + dBase + ";");
+
+                Console.WriteLine("attemptong to connect...");
+
+                if (Connect())
+                {
+                    amReady = "Connected!";
+                }
+
+                if (!Check())
+                {
+                    amReady += " Database Modified!";
+                }
+
+                Console.WriteLine(amReady);
             }
-            if (!Check())
+            catch (Exception e)
             {
-                amReady += " Database Modified!";
+
             }
         }
 
@@ -87,10 +102,13 @@ namespace AthenaCore
             try
             {
                 mConnection.Open();
+
+                //
                 return true;
             }
             catch (Exception e)
             {
+                Console.WriteLine("Exception: " + e.Message);
                 mCore.doEventLog("SqlDb.dbConnect: " + e.Message + "\r\n" + e.StackTrace, 0);
                 return false;
             }

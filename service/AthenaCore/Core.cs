@@ -20,10 +20,13 @@ namespace AthenaCore
 
         public Core()
         {
+
+            mModemManager = new ModemManager(this);
+
             readConfigFile();
+
             mSqlDb = new SqlDb(this);
             mSocketManager = new SocketManager(this);
-            mModemManager = new ModemManager(this);
 
         }
 
@@ -86,18 +89,39 @@ namespace AthenaCore
 
         public void readConfigFile()
         {
+            Console.WriteLine("readConfigFile()");
             try
             {
+                Console.WriteLine("try");
                 StreamReader cfg = new StreamReader(Resources.AthenaDir + "conf\\athenasms.conf");
                 string cs = cfg.ReadToEnd();
                 cfg.Close();
-                string[] configInfo = cs.Split(Resources.seperator1, StringSplitOptions.None);
-
-                for (int i = 0; i < configInfo.Length; i++)
+                //cfg.Dispose();
+                string[] configInfo = cs.Split(Resources.seperator1, StringSplitOptions.None) ;
+                
+                
+                if(configInfo.Length < 1)
                 {
-                    if (configInfo[i].Length > 0 && !configInfo[i].StartsWith("//"))
+                    Console.WriteLine("creating config file");
+                    createConfigFile();
+                    cfg = new StreamReader(Resources.AthenaDir + "conf\\athenasms.conf");
+                    cs = cfg.ReadToEnd();
+                    Console.WriteLine("contents: " + cs);
+                    cfg.Close();
+                    //cfg.Dispose();
+                    configInfo = cs.Split(Resources.seperator1, StringSplitOptions.None);
+                }
+                
+                Console.WriteLine("starting config loop");
+
+                foreach (string row in configInfo)
+                {
+                    //Console.WriteLine("looping thru configInfo");
+                    if (row.Length > 0 && !row.StartsWith("//"))
                     {
-                        string[] tmp = configInfo[i].Split(Resources.seperator2, StringSplitOptions.None);
+                        Console.WriteLine("row: " + row);
+                        string[] tmp = row.Split(Resources.seperator2, StringSplitOptions.None);
+                        //Console.WriteLine(tmp[0] + ":" + tmp[1]);
                         if (tmp[0].Equals("APPTITLE") && tmp[1].Length > 0)
                         {
                             Resources.appTitle = tmp[1];
@@ -124,6 +148,7 @@ namespace AthenaCore
                         }
                         else if (tmp[0].Equals("MODEM") && tmp.Length > 1)
                         {
+                            Console.WriteLine("MODEM:" + tmp[1].Trim());
                             mModemManager.addModem(tmp[1].Trim());
                         }
                         else if (tmp[0].Equals("SQL_HOST") && tmp.Length > 1)
@@ -140,12 +165,16 @@ namespace AthenaCore
                         }
                     }
                 }
+                Console.WriteLine("done with config loop.");
             }
             catch (Exception e)
             {
                 doEventLog("Main.readConfigFile(): " + e.Message, 1);
                 createConfigFile();
+                Console.WriteLine("Main.readConfigFile(): " + e.Message);
             }
+
+            Console.WriteLine("end of readConfigFile");
         }
 
         public void deleteConfigFile()
@@ -160,7 +189,7 @@ namespace AthenaCore
                 StreamWriter cfg = new StreamWriter(Resources.AthenaDir + @"conf\\athenasms.conf", true);
                 cfg.Write("//Athena Config File\r\n\r\n// Application Title\r\nAPPTITLE:Athena Sms Server\r\n\r\n//SQL HOST\r\nSQL_HOST:127.0.0.1\\SQLEXPRESS\r\nSQL_USER:sa\r\nSQL_PASS:\r\n\r\n// Company Name\r\nCOMPANY:My Company\r\n\r\n//Email Host\r\nEMAILHOST:\r\n\r\n//Email Users\r\nEMAIL_SENDER:\r\n\r\nEMAIL_RECIPIENT:\r\n\r\n//Email Header\r\nEMAIL_HEADER:your app name\r\n\r\n//Modems\r\n// dummy modem\r\nMODEM:DMY0\r\n//MODEM:COM?\r\n\r\n");
                 cfg.Close();
-                readConfigFile();
+                //readConfigFile();
             }
             catch (Exception e)
             {

@@ -11,7 +11,7 @@ using System.Xml;
 
 namespace AthenaCore
 {
-    class SockReciever
+    public class SockReciever
     {
 
         public SockSender mSender;
