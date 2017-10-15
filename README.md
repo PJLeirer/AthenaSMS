@@ -13,7 +13,7 @@ This project was a huge learning process for me and much of the code could be up
 You can laugh at some of the code if you want to, I do. But it works, I can at least say that!
 
 This is a very DIY solution to running your own text messaging service and designed to
-be used by professionals. Once installed properly it will work for anyone, you may need your 'computer guy' to do any troubleshooting if problems arise. You will need YOUR OWN MODEM. A multitech usb cdma wireless modem. (MTCBA-C-U-N3 http://www.multitech.com/manuals/s000345k.pdf). All their modems should use the same AT commands but double check. the init & shutdown string may be different.
+be used by professionals. Once installed properly it will work for anyone, you may need your 'computer guy' to do any troubleshooting if problems arise. You will need YOUR OWN MODEM. A multitech usb cdma wireless modem. (MTCBA-C-U-N3 https://www.multitech.com/models/92502842LF). All their modems should use the same AT commands but double check. the init & shutdown string may be different.
 
 Athena will not currently restrict the amount of texts going in or out. An 'Unlimited Text' plan is recommended.
 Athena only communicates with the modem(s). It will not setup service for your modem, you must call your cell phone provider and give them the id# on the modem.
