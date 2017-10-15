@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AthenaCore", "AthenaCore\At
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AthenaCLI", "AthenaCLI\AthenaCLI.csproj", "{895DD529-25F6-4766-AE2F-DBE6BDF56981}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConsoleWindows", "ClientConsoleWindows\ClientConsoleWindows.csproj", "{FF506A13-99FC-4BA9-A828-7510D9263CD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AthenaConsole", "AthenaConsole\AthenaConsole.csproj", "{9661656C-D668-4F7C-8A1E-591B35C427C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{895DD529-25F6-4766-AE2F-DBE6BDF56981}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{895DD529-25F6-4766-AE2F-DBE6BDF56981}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{895DD529-25F6-4766-AE2F-DBE6BDF56981}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF506A13-99FC-4BA9-A828-7510D9263CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF506A13-99FC-4BA9-A828-7510D9263CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF506A13-99FC-4BA9-A828-7510D9263CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF506A13-99FC-4BA9-A828-7510D9263CD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9661656C-D668-4F7C-8A1E-591B35C427C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9661656C-D668-4F7C-8A1E-591B35C427C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9661656C-D668-4F7C-8A1E-591B35C427C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9661656C-D668-4F7C-8A1E-591B35C427C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

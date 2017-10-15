@@ -1,0 +1,183 @@
+﻿<Window x:Class="AthenaConsole.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Athena Console" Height="468.728" Width="782.244" ResizeMode="NoResize">
+    <Grid Name="gridMain">
+        <Menu HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="774">
+            <MenuItem Header="Menu">
+                <MenuItem Header="Option" Click="OnMenuOptionsClicked" HorizontalAlignment="Left" Width="145"/>
+                <MenuItem Header="Exit" Click="OnMenuExitClicked" HorizontalAlignment="Left" Width="145"/>
+            </MenuItem>
+        </Menu>
+        <TabControl HorizontalAlignment="Left" Height="416" Margin="0,23,0,0" VerticalAlignment="Top" Width="774">
+            <TabItem Name="tAdminTab" Header="Admin" RequestBringIntoView="TabItem_Admin_RequestBringIntoView">
+                <Grid Background="#FFE5E5E5" Margin="-3,1,3,-1">
+                    <Grid Margin="458,59,22,118">
+                        <Label Content="Send Text(s)" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" Width="88" FontSize="14"/>
+                        <RadioButton Click="OnSingleModeClicked" GroupName="grpSendTxt" Content="Single" IsChecked="True" HorizontalAlignment="Left" Margin="110,16,0,0" VerticalAlignment="Top"/>
+                        <RadioButton Click="OnGroupModeClicked" GroupName="grpSendTxt" Content="Group" HorizontalAlignment="Left" Margin="174,16,0,0" VerticalAlignment="Top"/>
+
+                        <Grid Name="gSingleTxt" HorizontalAlignment="Left" Height="171" Margin="10,28,0,0" VerticalAlignment="Top" Width="272">
+                            <TextBox Text="{Binding Path=ItemName, UpdateSourceTrigger=PropertyChanged}" TextChanged="tbPhoneNumber_TextChanged" Name="tbPhoneNumber" HorizontalAlignment="Left" Height="23" Margin="61,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135"/>
+                            <TextBox Name="tbSingleMessage" HorizontalAlignment="Left" Height="69" Margin="8,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"/>
+                            <Label Content="Phone #" HorizontalAlignment="Left" Margin="8,8,0,0" VerticalAlignment="Top"/>
+                            <Button Name="bSingleSend" Click="OnSendSingleTextClicked" Content="Send" HorizontalAlignment="Left" Margin="91,129,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Label Content="Message" HorizontalAlignment="Left" Margin="8,30,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Name="gGroupTxt" Visibility="Hidden" HorizontalAlignment="Left" Height="160" Margin="10,28,0,0" VerticalAlignment="Top" Width="274">
+                            <ComboBox Name="cbGroupList" HorizontalAlignment="Left" Margin="70,6,0,0" VerticalAlignment="Top" Width="120"/>
+                            <TextBox Name="tbGroupMessage" HorizontalAlignment="Left" Height="69" Margin="8,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"/>
+                            <Button Name="bGroupSend" Click="OnSendGroupTextClicked" Content="Send" HorizontalAlignment="Left" Margin="91,129,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Label Content="Group" HorizontalAlignment="Left" Margin="8,8,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Message" HorizontalAlignment="Left" Margin="8,30,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Margin="10,64,345,110">
+                        <Label Content="All Users" HorizontalAlignment="Left" Margin="26,4,0,0" VerticalAlignment="Top" FontSize="14"/>
+                        <ListBox Name="lbAllUsers"  HorizontalAlignment="Left" Height="150" Margin="-2,27,0,0" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Connections" HorizontalAlignment="Left" Margin="150,4,0,0" VerticalAlignment="Top" FontSize="14"/>
+                        <ListBox Name="lbOnlineUsers" HorizontalAlignment="Left" Height="150" Margin="132,27,0,0" VerticalAlignment="Top" Width="120"/>
+                        <Button Name="bAddUser" Click="OnAddUserClicked" Content="Add" HorizontalAlignment="Left" Margin="5,183,0,0" VerticalAlignment="Top" Width="44"/>
+                        <Button Content="Edit" Click="OnEditUserClicked" HorizontalAlignment="Left" Margin="65,183,0,0" VerticalAlignment="Top" Width="44"/>
+                        <Button Content="Kick" Click="OnKickUserClicked" HorizontalAlignment="Left" Margin="169,183,0,0" VerticalAlignment="Top" Width="44"/>
+                        <ListBox Name="lbContacts" HorizontalAlignment="Left" Height="150" Margin="270,27,0,0" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Contacts" HorizontalAlignment="Left" Margin="295,4,0,0" VerticalAlignment="Top" FontSize="14"/>
+                        <Button Content="Add" Click="OnAddContactClicked" HorizontalAlignment="Left" Margin="275,183,0,0" VerticalAlignment="Top" Width="50"/>
+                        <Button Content="Edit" Click="OnEditContactClicked" HorizontalAlignment="Left" Margin="332,183,0,0" VerticalAlignment="Top" Width="50"/>
+
+                    </Grid>
+                    <Grid Margin="280,295,364,12">
+                        <Label Content="Groups" HorizontalAlignment="Left" Margin="34,-8,0,0" VerticalAlignment="Top" FontSize="14"/>
+                        <ComboBox Name="cbEditGroupList" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="101"/>
+                        <Button Content="Add" Click="OnAddGroupClicked" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="49"/>
+                        <Button Content="Delete" Click="OnDeleteGroupClicked" HorizontalAlignment="Left" Margin="64,43,0,0" VerticalAlignment="Top" Width="49"/>
+
+                    </Grid>
+                    <Label Content="Admin" FontSize="18" HorizontalAlignment="Left" Margin="341,0,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Logged In as " HorizontalAlignment="Left" Margin="323,32,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lUserName" Content="?" HorizontalAlignment="Left" Margin="395,32,0,0" VerticalAlignment="Top"/>
+                    <Grid HorizontalAlignment="Left" Height="41" Margin="472,295,-10,0" VerticalAlignment="Top" Width="302">
+                        <Label Content="Send System Messages via" HorizontalAlignment="Left" Margin="0,-4,0,0" VerticalAlignment="Top"/>
+                        <RadioButton Click="OnMsgModeClicked" x:Name="rEmailMode" GroupName="grpSysMsgMode" Content="Email" HorizontalAlignment="Left" Margin="153,2,0,0" VerticalAlignment="Top"/>
+                        <RadioButton Click="OnMsgModeClicked" x:Name="rTextMode" GroupName="grpSysMsgMode" Content="Text" HorizontalAlignment="Left" Margin="202,2,0,0" VerticalAlignment="Top"/>
+                        <RadioButton Click="OnMsgModeClicked" x:Name="rOffMode" GroupName="grpSysMsgMode" Content="Off" HorizontalAlignment="Left" Margin="248,2,0,0" VerticalAlignment="Top"/>
+                    </Grid>
+                    <Label Content="System Settings" HorizontalAlignment="Left" Margin="472,261,0,0" VerticalAlignment="Top" FontSize="14"/>
+
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Jobs" RequestBringIntoView="TabItem_Jobs_RequestBringIntoView" HorizontalAlignment="Left" Width="41">
+                <Grid Background="#FFE5E5E5">
+                    <Grid HorizontalAlignment="Left" Height="358" Margin="404,10,0,0" VerticalAlignment="Top" Width="251">
+                        <Grid Margin="32,51,35,187">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="157*"/>
+                                <ColumnDefinition Width="27*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Weekly Jobs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,7,0,0" FontSize="14"/>
+                            <ComboBox Name="cbWeekyJobs" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="164" Grid.ColumnSpan="2"/>
+                            <Button Content="Run Single" Click="OnRunSingleWeeklyJob" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="69"/>
+                            <Button Content="Run All" Click="OnRunScheduledWeeklyJobs" HorizontalAlignment="Left" Margin="105,58,0,0" VerticalAlignment="Top" Width="69" Grid.ColumnSpan="2"/>
+                            <Button Content="Add" Click="OnAddScheduledWeeklyJob" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="69"/>
+                            <Button Content="Edit" Click="OnEditScheduledWeeklyJob" HorizontalAlignment="Left" Margin="105,85,0,0" VerticalAlignment="Top" Width="69" Grid.ColumnSpan="2"/>
+
+                        </Grid>
+                        <Grid Margin="32,193,35,45">
+                            <Label Content="Monthly Jobs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,7,0,0" FontSize="14"/>
+                            <ComboBox x:Name="cbMonthlyJobs" Margin="10,31,10,0" VerticalAlignment="Top"/>
+                            <Button Content="Run Single" Click="OnRunSingleMonthlyJob" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="69"/>
+                            <Button Content="Run All" Click="OnRunScheduledMonthlyJobs" HorizontalAlignment="Left" Margin="106,58,0,0" VerticalAlignment="Top" Width="69"/>
+                            <Button Content="Add" Click="OnAddScheduledMonthlyJob" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="69"/>
+                            <Button Content="Edit" Click="OnEditScheduledMonthlyJob" HorizontalAlignment="Left" Margin="105,86,0,0" VerticalAlignment="Top" Width="69"/>
+
+                        </Grid>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="362" Margin="95,22,0,0" VerticalAlignment="Top" Width="266">
+                        <Grid Margin="10,10,71,54">
+                            <Label Content="Unscheduled Jobs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,33,0,0" FontSize="14"/>
+                            <ComboBox Name="cbUnscheduledJobs" HorizontalAlignment="Left" Margin="10,59,0,217" Width="164"/>
+                            <Button Content="Run Single" Click="OnRunUnscheduledJob" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="69"/>
+                            <Button Content="Run All" Click="OnRunAllUnscheduledJobs" HorizontalAlignment="Left" Margin="105,86,0,0" VerticalAlignment="Top" Width="69"/>
+                            <Button Content="Add" Click="OnAddUnscheduledJob" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="69"/>
+                            <Button Content="Edit" Click="OnEditUnscheduledJob" HorizontalAlignment="Left" Margin="105,113,0,0" VerticalAlignment="Top" Width="69"/>
+                            <Grid Margin="2,169,-1,9">
+                                <Label Content="Daily Jobs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,7,0,0" FontSize="14"/>
+                                <ComboBox x:Name="cbDailyJobs" HorizontalAlignment="Left" Margin="10,31,0,68" Width="164"/>
+                                <Button Content="Run Single" Click="OnRunSingleDailyJob" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="69"/>
+                                <Button Content="Run All" Click="OnRunScheduledDailyJobs" HorizontalAlignment="Left" Margin="105,58,0,0" VerticalAlignment="Top" Width="69"/>
+                                <Button Content="Add" Click="OnAddScheduledDailyJob" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="69"/>
+                                <Button Content="Edit" Click="OnEditScheduledDailyJob" HorizontalAlignment="Left" Margin="105,85,0,0" VerticalAlignment="Top" Width="69"/>
+
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Texts" RequestBringIntoView="TabItem_Texts_RequestBringIntoView">
+                <Grid Background="#FFE5E5E5" FocusManager.FocusedElement="{Binding ElementName=tbTextLogNumber}">
+                    <RadioButton Content="Outgoing" Click="OnOutgoingRadioClicked" GroupName="rTextLog" IsChecked="True" HorizontalAlignment="Left" Margin="14,33,0,0" VerticalAlignment="Top"/>
+                    <RadioButton Content="Incoming" Click="OnIncomingRadioClicked" GroupName="rTextLog" HorizontalAlignment="Left" Margin="89,33,0,0" VerticalAlignment="Top"/>
+                    <Label Name="lMessageLogTitle" Content="Messages" HorizontalAlignment="Left" Margin="163,28,0,0" VerticalAlignment="Top"/>
+                    <ListBox Name="lbOutgoingTexts" HorizontalAlignment="Left" Height="154" Margin="10,51,0,0" VerticalAlignment="Top" Width="724"/>
+                    <Label Content="Failed Outgoing Messages" HorizontalAlignment="Left" Margin="11,203,0,0" VerticalAlignment="Top"/>
+                    <ListBox Name="lbFailedOutgoing" HorizontalAlignment="Left" Height="154" Margin="10,224,0,0" VerticalAlignment="Top" Width="724"/>
+                    <TextBox KeyDown="tbTextLogNumber_KeyDown_1" Name="tbTextLogNumber" HorizontalAlignment="Left" Height="22" Margin="504,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+                    <Label Content="Filter by Phone #" HorizontalAlignment="Left" Margin="400,27,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Texts" FontSize="18" HorizontalAlignment="Left" Margin="340,0,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Reports" RequestBringIntoView="TabItem_Reports_RequestBringIntoView">
+                <Grid Name="gridReports" Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="187*"/>
+                    </Grid.ColumnDefinitions>
+                    <Calendar Name="calTotals" SelectedDatesChanged="OnGetDayTotals" HorizontalAlignment="Left" Margin="115,86,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="Select Day to View Totals" HorizontalAlignment="Left" Margin="118,66,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <ComboBox  Name="cbReportType" HorizontalAlignment="Left" Margin="463,94,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+                        <ComboBoxItem Content="Weekly" HorizontalAlignment="Left" Width="88"/>
+                        <ComboBoxItem Content="Monthly" HorizontalAlignment="Left" Width="88"/>
+                        <ComboBoxItem Content="Yearly" HorizontalAlignment="Left" Width="88"/>
+                    </ComboBox>
+                    <Label Content="Select Report" HorizontalAlignment="Left" Margin="465,68,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <RadioButton Name="rbEmail" Content="Email" GroupName="sendReportTo" IsChecked="True" Grid.Column="1" HorizontalAlignment="Left" Margin="465,126,0,0" VerticalAlignment="Top"/>
+                    <RadioButton Name="rbPrinter" Content="Printer" GroupName="sendReportTo" Grid.Column="1" HorizontalAlignment="Left" Margin="465,154,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Generate" Click="OnGenerateReportClicked" Grid.Column="1" HorizontalAlignment="Left" Margin="463,187,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Label Content="Reports" FontSize="18" HorizontalAlignment="Left" Margin="324,0,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Name="lbOutgoingTotals" Grid.Column="1" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="118,274,567,0" VerticalAlignment="Top" Width="63" Height="26"/>
+                    <Label Name="lbIncomingTotals" Grid.Column="1" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="223,274,454,0" VerticalAlignment="Top" Width="71" Height="26"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Modem" RequestBringIntoView="TabItem_Modem_RequestBringIntoView">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="lbModemLog" HorizontalAlignment="Left" Height="304" Margin="10,70,0,0" VerticalAlignment="Top" Width="380"/>
+                    <Label Content="Modem Log" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+                    <ComboBox Name="cbModemSelect" HorizontalAlignment="Left" Margin="99,36,0,0" VerticalAlignment="Top" Width="102" Height="20"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Info" RequestBringIntoView="TabItem_Info_RequestBringIntoView">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="83*"/>
+                        <ColumnDefinition Width="299*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Socket In" HorizontalAlignment="Left" Margin="18,8,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Socket Out" HorizontalAlignment="Left" Margin="18,193,0,0" VerticalAlignment="Top"/>
+                    <ListBox Name="lbSockIn" HorizontalAlignment="Left" Height="165" Margin="15,28,0,0" VerticalAlignment="Top" Width="310" Grid.ColumnSpan="2"/>
+                    <ListBox Name="lbSockOut" HorizontalAlignment="Left" Height="165" Margin="15,213,0,0" VerticalAlignment="Top" Width="310" Grid.ColumnSpan="2"/>
+                    <ListBox x:Name="lbErrLog" HorizontalAlignment="Left" Height="348" Margin="260,26,0,0" VerticalAlignment="Top" Width="310" Grid.Column="1"/>
+                    <Label Content="Console Exceptions" HorizontalAlignment="Left" Margin="263.25,6,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="Info" FontSize="18" HorizontalAlignment="Left" Margin="174.25,0,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            
+        </TabControl>
+
+    </Grid>
+</Window>
