@@ -1,1 +1,0 @@
-This is the console version of the server, it has all the latest changes.
