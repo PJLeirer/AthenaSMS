@@ -26,9 +26,9 @@ Sending Single and Group Texts works right-out-of-the-box, If you wish to use sc
 
 The format for batch files is: number|message(cr)or(cr)(nl), works for files created in unix/linux & windows
 
-555-555-0000|Hello Jim<cr>
-555-555-0100|Hello Bob<cr>
-5555551234 | Hello World<cr>
+555-555-0000|Hello Jim<br/>
+555-555-0100|Hello Bob<br/>
+5555551234 | Hello World<br/>
 
 all the above lines are valid
 a new line on the end should be fine but not sure. 
