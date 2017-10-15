@@ -1,4 +1,4 @@
-This is the Windows Service, Console Application and Core System for SMS Server.
+This is the Windows Service, Console Server and Core System for SMS Server. Also, the Windows Client Administrative Console and client jobs for scheduling
 
 Installation:
   1. Create an MSSQL database called 'athenasms'
