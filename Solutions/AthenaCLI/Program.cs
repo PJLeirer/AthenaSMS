@@ -51,10 +51,10 @@ namespace AthenaCLI
                         int userCount = 0;
 
                         Console.WriteLine("Registered Users...");
-                        ArrayList list = mCore.mSqlDb.getUserList();
-                        foreach (string user in list)
+                        List<Dictionary<string, object>> list = mCore.mSqlDb.getUserList();
+                        foreach (Dictionary<string, object> user in list)
                         {
-                            Console.WriteLine("- " + user);
+                            Console.WriteLine("- " + user["Name"] + ", " + user["Level"]);
                             regCount++;
 
                         }

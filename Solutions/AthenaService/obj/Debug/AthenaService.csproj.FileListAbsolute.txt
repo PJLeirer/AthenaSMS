@@ -18,3 +18,8 @@ C:\Program Files (x86)\Git\source\AthenaSMS\service\AthenaService\bin\Debug\Athe
 C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaService\bin\Debug\AthenaService.exe.config
 C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaService\obj\Debug\AthenaService.exe
 C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaService\obj\Debug\AthenaService.pdb
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaService\bin\Debug\AthenaService.exe
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaService\bin\Debug\AthenaService.pdb
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaService\bin\Debug\AthenaCore.dll
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaService\bin\Debug\AthenaCore.pdb
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaService\obj\Debug\AthenaService.csprojResolveAssemblyReference.cache

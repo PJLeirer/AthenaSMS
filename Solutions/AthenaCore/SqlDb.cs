@@ -457,9 +457,9 @@ namespace AthenaCore
 
 
 
-        public ArrayList getUserList()
+        public List<Dictionary<string, object>> getUserList()
         {
-            ArrayList UL = new ArrayList();
+            List<Dictionary<string, object>> UL = new List<Dictionary<string, object>>();
             if (mConnection.State != ConnectionState.Open)
             {
                 Connect();
@@ -476,7 +476,10 @@ namespace AthenaCore
                         {
                             while (mReader.Read())
                             {
-                                UL.Add(mReader["Name"]);
+                                Dictionary<string, object> user = new Dictionary<string, object>();
+                                user.Add("Name", mReader["Name"]);
+                                user.Add("Level", mReader["Level"]);
+                                UL.Add(user);
                             }
                             mReader.Close();
                         }

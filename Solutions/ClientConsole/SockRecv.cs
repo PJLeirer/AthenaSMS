@@ -234,15 +234,46 @@ namespace AthenaConsole
 
                                             else if (mXmlReader.Name.Trim().Equals("txUserList"))
                                             {
-                                                ArrayList userList = new ArrayList();
+
+                                                System.Diagnostics.Debug.WriteLine("Xml object" + mXmlReader.ToString());
+
+                                                List<Dictionary<string, object>> userList = new List<Dictionary<string, object>>();
                                                 mXmlReader.Read(); //start tag
                                                 while (mXmlReader.IsStartElement())
                                                 {
 
                                                     if (mXmlReader.Name.Equals("user"))
                                                     {
+                                                        Dictionary<string, object> user = new Dictionary<string,object>();
+
                                                         mXmlReader.Read();
-                                                        userList.Add(mXmlReader.Value.Trim());
+
+
+                                                        while (mXmlReader.IsStartElement())
+                                                        {
+                                                            if (mXmlReader.Name.Equals("name"))
+                                                            {
+                                                                mXmlReader.Read(); // to value
+                                                                user.Add("Name", mXmlReader.Value.Trim());
+                                                                mXmlReader.Read(); // to end tag
+                                                            }
+                                                            else if (mXmlReader.Name.Equals("level"))
+                                                            {
+                                                                mXmlReader.Read();
+                                                                user.Add("Level", mXmlReader.Value.Trim());
+                                                                mXmlReader.Read();
+
+                                                            }
+                                                            else
+                                                            {
+                                                                mXmlReader.Read();
+                                                                mXmlReader.Read(); 
+
+                                                            }
+                                                            mXmlReader.Read(); // to name end tag
+                                                        }
+
+                                                        userList.Add(user);
                                                         mXmlReader.Read();// end tag
                                                     }
                                                     mXmlReader.Read(); //start tag?

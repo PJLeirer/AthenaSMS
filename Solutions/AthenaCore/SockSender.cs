@@ -280,13 +280,13 @@ namespace AthenaCore
 
                     Console.WriteLine("sending userList ");
 
-                    ArrayList users = mCore.mSqlDb.getUserList();
+                    List<Dictionary<string, object>> users = mCore.mSqlDb.getUserList();
 
                     string xmlInfo = xmlStart;
                     xmlInfo += "<txUserList>\n";
-                    for (int i = 0; i < users.Count; i++)
+                    foreach (Dictionary<string, object> user in users)
                     {
-                        xmlInfo += "<user>" + users[i] + "</user>\n";
+                        xmlInfo += "<user><name>" + user["Name"] + "</name><level>" + user["Level"] + "</level></user>\n";
                     }
                     xmlInfo += "</txUserList>\n";
                     xmlInfo += xmlEnd;

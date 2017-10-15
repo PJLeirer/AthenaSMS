@@ -325,7 +325,7 @@ namespace AthenaConsole
         }
 
 
-        public void AllUserUpdater(ArrayList al)
+        public void AllUserUpdater(List<Dictionary<string, object>> UL)
         {
             Thread thread = new Thread(
                     new ThreadStart(
@@ -337,9 +337,9 @@ namespace AthenaConsole
                               delegate()
                               {
                                   mAllUsersList.Clear();
-                                  foreach (string s in al)
+                                  foreach (Dictionary<string, object> user in UL)
                                   {
-                                    mAllUsersList.Add(s);
+                                    mAllUsersList.Add(user["Name"] + " \t " + user["Level"]);
                                   }
                               }
                           ));
@@ -837,7 +837,7 @@ namespace AthenaConsole
         {
             if (lbAllUsers.SelectedIndex >= 0)
             {
-                mEditUserForm = new EditUserForm(this, lbAllUsers.SelectedValue.ToString());
+                mEditUserForm = new EditUserForm(this, lbAllUsers.SelectedValue.ToString().Split()[0]);
                 mEditUserForm.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 mEditUserForm.Show();
             }
