@@ -13,12 +13,14 @@ namespace AthenaCore
     {
 
         // custumizable for client
+        private String dbHost = @"ATHENASMS\ATHENASQL"; // host name and sql instance
         private String dBase = "athenasms";
         private String dbUser = Resources.mSqlUser; //"sa";
         private String dbPass = Resources.mSqlPass; // and pass
 
-        private SqlConnection mConnection;
 
+        //
+        private SqlConnection mConnection;
         public String amReady = "Not Connected!";
 
         String[] seperator1 = new String[] { "\r\n" };
@@ -40,7 +42,7 @@ namespace AthenaCore
         {
             try
             {
-                Console.WriteLine("starting SqlDb...");
+                //Console.WriteLine("starting SqlDb...");
                 mCore = core;
                 if (Resources.mSqlHost != null)
                 {
@@ -51,11 +53,9 @@ namespace AthenaCore
                     host = @"127.0.0.1\SQLEXPRESS";
                 }
 
-                Console.WriteLine("set host to '" + host + "'");
+                Console.WriteLine("SQL Host '" + host + "'");
 
                 mConnection = new SqlConnection("integrated security=SSPI;data source=" + host + ";Persist Security Info=false;UID=" + dbUser + ";PWD=" + dbPass + ";Initial Catalog=" + dBase + ";");
-
-                Console.WriteLine("attemptong to connect...");
 
                 if (Connect())
                 {
@@ -71,7 +71,7 @@ namespace AthenaCore
             }
             catch (Exception e)
             {
-
+                mCore.doLogFile("SqlDb(): " + e.Message + "\r\n" + e.StackTrace, 0);
             }
         }
 
@@ -204,15 +204,20 @@ namespace AthenaCore
                             mCommand.Dispose();
                         }
                         
-                        //x1 = true;
-
                         using (SqlCommand mCommand = new SqlCommand("insert into Users ( Name, Pass, Level ) values ( 'admin', HASHBYTES('MD5', 'admin'), 9 );", mConnection))
                         {
                             mCommand.ExecuteNonQuery();
                             mCommand.Dispose();
+                            Console.WriteLine("\r\n* An 'admin' user with the pw of 'admin' has been created!\r\n* You should change the password asap!\r\n");
+            
                         }
 
-                        //Program.doAlert("an admin user with the pw of 'admin' has been created!\r\n you should change this asap!", "info");
+                        using (SqlCommand mCommand = new SqlCommand("insert into Users ( Name, Pass, Level ) values ( 'client', HASHBYTES('MD5', 'client'), 9 );", mConnection))
+                        {
+                            mCommand.ExecuteNonQuery();
+                            mCommand.Dispose();
+                            Console.WriteLine("* A 'client' user with the pw of 'client' has been created!\r\n* You should change this password as well!\r\n");
+                        }
 
                     }
                     if (!isOutgoing)

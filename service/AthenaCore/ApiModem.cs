@@ -19,6 +19,7 @@ namespace AthenaCore
         private int myNumber = 0;
         private string portName = null;
         protected Core mCore;
+
         public ApiModem(Core core, String port, int num)
         {
             // TODO
@@ -39,31 +40,31 @@ namespace AthenaCore
 
 
         }
-        bool IsInstalledProperly()
+        public bool IsInstalledProperly()
         {
             return installedProperly.Equals(true);
         }
-        bool IsModemReady()
+        public bool IsModemReady()
         {
             return modemReady.Equals(true);
         }
-        bool IsOffhook()
+        public bool IsOffhook()
         {
             return offHook.Equals(true);
         }
-        int GetMyNumber()
+        public int GetMyNumber()
         {
             return (myNumber + 0);
         }
-        string GetMyPortName()
+        public string GetMyPortName()
         {
             return new string(portName.ToCharArray());
         }
-        void ShutDown()
+        public void ShutDown()
         {
 
         }
-        void sendSMS(String num, String msg)
+        public void sendSMS(String num, String msg)
         {
 
         }

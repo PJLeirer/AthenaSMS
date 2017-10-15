@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AthenaCore;
+using System.Collections;
 
 namespace AthenaCLI
 {
@@ -47,6 +48,16 @@ namespace AthenaCLI
                     case "users":
                         Console.WriteLine("\r\nUsers:");
                         int userCount = 0;
+
+                        Console.WriteLine("Connected Users...");
+                        ArrayList list = mCore.mSqlDb.getUserList();
+                        foreach (object user in list)
+                        {
+                            // TODO
+                        }
+
+
+                        Console.WriteLine("Connected Users...");
                         foreach (SockReciever receiver in mCore.mSocketManager.mRecievers)
                         {
                             Console.WriteLine(receiver.mUserName);
@@ -72,8 +83,6 @@ namespace AthenaCLI
 
             Console.WriteLine("GoodBye");
         }
-
-
 
         private static void PrintMenu()
         {

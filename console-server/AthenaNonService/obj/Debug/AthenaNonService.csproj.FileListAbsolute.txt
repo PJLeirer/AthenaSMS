@@ -13,3 +13,6 @@ C:\Users\pj\Documents\GitHub\Athena-SMS\console-server\AthenaNonService\obj\Debu
 C:\Users\pj\Documents\GitHub\AthenaSMS\console-server\AthenaNonService\bin\Debug\AthenaNonService.exe.config
 C:\Users\pj\Documents\GitHub\AthenaSMS\console-server\AthenaNonService\obj\Debug\AthenaNonService.exe
 C:\Users\pj\Documents\GitHub\AthenaSMS\console-server\AthenaNonService\obj\Debug\AthenaNonService.pdb
+C:\Program Files (x86)\Git\source\AthenaSMS\console-server\AthenaNonService\bin\Debug\AthenaNonService.exe.config
+C:\Program Files (x86)\Git\source\AthenaSMS\console-server\AthenaNonService\obj\Debug\AthenaNonService.exe
+C:\Program Files (x86)\Git\source\AthenaSMS\console-server\AthenaNonService\obj\Debug\AthenaNonService.pdb
