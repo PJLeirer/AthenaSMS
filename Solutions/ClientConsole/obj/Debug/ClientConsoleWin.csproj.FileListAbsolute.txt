@@ -28,3 +28,6 @@ C:\Program Files (x86)\Git\source\AthenaSMS\service\AthenaConsole\obj\Debug\Athe
 C:\Program Files (x86)\Git\source\AthenaSMS\service\AthenaConsole\obj\Debug\AthenaConsole.g.resources
 C:\Program Files (x86)\Git\source\AthenaSMS\service\AthenaConsole\obj\Debug\AthenaConsole.Properties.Resources.resources
 C:\Program Files (x86)\Git\source\AthenaSMS\service\AthenaConsole\obj\Debug\ClientConsoleWin.csproj.GenerateResource.Cache
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\ClientConsole\bin\Debug\AthenaConsole.exe.config
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\ClientConsole\obj\Debug\AthenaConsole.exe
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\ClientConsole\obj\Debug\AthenaConsole.pdb

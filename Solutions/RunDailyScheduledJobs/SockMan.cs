@@ -55,7 +55,7 @@ namespace RunDailyScheduledJobs
                                 Console.WriteLine("Logging in!");
 
                                 // run updates
-                                if (mSockSend.Login("daily", "daily"))
+                                if (mSockSend.Login(Program.ClientUserName, Program.ClientUserPass))
                                 {
                                     Console.WriteLine("Running Daily Jobs");
                                     mSockSend.RunScheduledJobs(1);

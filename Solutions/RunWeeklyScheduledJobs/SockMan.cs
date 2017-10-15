@@ -55,7 +55,7 @@ namespace RunWeeklyScheduledJobs
                                 Console.WriteLine("Logging in!");
 
                                 // run updates
-                                if (mSockSend.Login("daily", "daily"))
+                                if (mSockSend.Login(Program.ClientUserPass, Program.ClientUserPass))
                                 {
                                     Console.WriteLine("Running Weekly Jobs");
                                     mSockSend.RunScheduledJobs(2);

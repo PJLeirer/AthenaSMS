@@ -3,3 +3,9 @@ c:\users\candy\documents\visual studio 2012\Projects\RunWeeklyScheduledJobs\RunW
 c:\users\candy\documents\visual studio 2012\Projects\RunWeeklyScheduledJobs\RunWeeklyScheduledJobs\bin\Debug\RunWeeklyScheduledJobs.pdb
 c:\users\candy\documents\visual studio 2012\Projects\RunWeeklyScheduledJobs\RunWeeklyScheduledJobs\obj\Debug\RunWeeklyScheduledJobs.exe
 c:\users\candy\documents\visual studio 2012\Projects\RunWeeklyScheduledJobs\RunWeeklyScheduledJobs\obj\Debug\RunWeeklyScheduledJobs.pdb
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\RunWeeklyScheduledJobs\bin\Debug\RunWeeklyScheduledJobs.exe.config
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\RunWeeklyScheduledJobs\obj\Debug\RunWeeklyScheduledJobs.exe
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\RunWeeklyScheduledJobs\obj\Debug\RunWeeklyScheduledJobs.pdb
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\RunWeeklyScheduledJobs\bin\Debug\RunWeeklyScheduledJobs.exe
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\RunWeeklyScheduledJobs\bin\Debug\RunWeeklyScheduledJobs.pdb
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\RunWeeklyScheduledJobs\obj\Debug\RunWeeklyScheduledJobs.csprojResolveAssemblyReference.cache

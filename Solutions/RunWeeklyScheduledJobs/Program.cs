@@ -10,9 +10,11 @@ namespace RunWeeklyScheduledJobs
     class Program
     {
         // host address and port;
-        public static IPAddress hostIP = new IPAddress(new byte[] { 192, 168, 1, 71 }); // remote
-        //public static IPAddress hostIP = IPAddress.Any; // local
+        public static IPAddress hostIP = new IPAddress(new byte[] { 127, 0, 0, 1 });
         public static int hostPort = 11420;
+
+        public static string ClientUserName = "client";
+        public static string ClientUserPass = "client";
 
 
         public static SyncUser mSyncUser;
@@ -26,13 +28,20 @@ namespace RunWeeklyScheduledJobs
         static void Main(string[] args)
         {
 
+            Console.WriteLine("\r\n Running Weekly Sheduled Jobs\r\n");
+
             mSyncUser = new SyncUser();
+
+            
+            Console.WriteLine("starting up...");
 
             mSockMan = new SockMan();
 
+            Console.WriteLine("running...");
 
 
-
+            // DEbug
+            //Console.ReadLine();
         }
     }
 }

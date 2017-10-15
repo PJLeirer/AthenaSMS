@@ -11,9 +11,11 @@ namespace RunDailyScheduledJobs
     {
 
         // host address and port;
-        public static IPAddress hostIP = new IPAddress(new byte[] { 192, 168, 1, 71 }); // remote
-        //public static IPAddress hostIP = IPAddress.Any; // local
+        public static IPAddress hostIP = new IPAddress(new byte[] { 127, 0, 0, 1 });
         public static int hostPort = 11420;
+
+        public static string ClientUserName = "client";
+        public static string ClientUserPass = "client";
 
 
         public static SyncUser mSyncUser;
