@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*
+ * Modem Class. all modem comunications are handled here.
+ * 
+ * this class has been tested with an MTCBA-C1-U-N3 wireless modem from multitech.
+ * any cdma modem should work with minor changes to this file.
+ * this is the only file you will need to modify for different modems.
+ * 
+ * IMPORTANT! Be sure to read the modem's manual even if you have the same model! Be absolutely sure all AT commands are correct for the device!
+ * 
+ * 
+ * */
+
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
@@ -20,57 +33,9 @@ namespace AthenaCore
 
         protected char CTRL_Z = (char)0x1A;
 
-        /*
-        //stats report codes
-        //
-        //Network Problems
-        int CDS_ADDRESS_VACANT = 0;// Address vacant
-        int CDS_ADDRESS_TRANSLATION_FAILURE = 1;// Address translation failure
-        int CDS_NETWORK_RESOURCE_SHORTAGE = 2;// Network resource shortage
-        int CDS_NETWORK_FAILURE = 3;// Network failure
-        int CDS_INVALID_TELESERVICE_ID = 4;// Invalid teleservice ID
-        int CDS_OTHER_NETWORK_PROBLEM = 5;// Other network problem
-        
-        //Terminal Problems
-        int CDS_NO_PAGE_RESPONSE = 32;// No page response
-        int CDS_DESTINATION_BUSY = 33;// Destination busy
-        int CDS_MN_ACKNOWLEDGE = 34;// No acknowledgment from transport layer
-        int CDS_DESTINATION_RESOURCE_SHORTAGE = 35;// Destination resource shortage
-        int CDS_DELIVERY_POSTPONED = 36;// SMS delivery postponed
-        int CDS_DESTINATION_OUT_OF_SERVICE = 37;// Destination out of service
-        int CDS_DESTINATION_NO_LONGER_AT_ADDRESS = 38;// Destination no longer at this address
-        int CDS_OTHER_TERMINAL_PROBLEM = 39;// Other terminal problem
-
-        //Radio Interface Problems
-        int CDS_RADIO_INTERFACE_RESOURCE_SHORTAGE = 64;// Radio interface resource shortage
-        int CDS_RADIO_INTERFACE_INCOMPATIBLE = 65;// Radio interface incompatible
-        int CDS__OTHER_RADIO_INTERFACE_PROBLEM = 66;// Other radio interface problem
-
-        //General problems (IS-41D)
-        int CDS_UNEXPECTED_PARAMETER_SIZE = 96;// Unexpected parameter size
-        int CDS_ORIGINATION_DENIED = 97;// SMS Origination denied
-        int CDS_TERMINATION_DENIED = 98;// SMS Termination denied
-        int CDS_SUPPLEMENTARY_SERVICE_NOT_SUPPORTED = 99;// Supplementary service not supported
-        int CDS_SMS_NOT_SUPPORTED = 100;// SMS not supported
-        int CDS_RESERVED1 = 101;// Reserved
-        int CDS_MISSING_EXPECTED_PARAMETERS = 102;// Missing expected parameters
-        int CDS_MISSING_MANDATORY_PARAMETERS = 103;// Missing mandatory parameters
-        int CDS_UNRECOGNIZED_PARAMETER_VALUE1 = 104;// Unrecognized parameter value
-        int CDS_UNRECOGNIZED_PARAMETER_VALUE2 = 105;// Unexpected parameter value
-        int CDS_USER_DATA_SIZE_ERROR = 106;// User data size error
-        //int CDS_NO_ACKNOWLEDGE_UNKOWN_ERROR = 107;// -255 No acknowledgement / Unknown error
-
-        //General Codes
-        int CDS_SMS_OK = 32768;// SMS OK. Message successfully delivered to base station
-        int CDS_OUT_OF_RESOURCES = 32770;// Out of resources
-        int CDS_MESSAGE_TOO_LARGE_FOR_ACCESS_CHANNEL = 32771;// Message too large for access channel
-        int CDS_MESSAGE_TOO_LARGE_FOR_DEDICATED_CHANNEL = 32772;// Message too large for dedicated channel
-        int CDS_NETOWRK_NOT_READY = 32773;// Network not ready
-        int CDS_PHONE_NOT_READY = 32774;// Phone not ready
-        int CDS_NOT_ALLOWED_IN_AMPS = 32775;// Not allowed in AMPS
-        int CDS_CANNOT_SEND_BROADCAST = 32776;// Cannot send broadcast
-        */
-
+        // check your modem's init AT Command options, any changes must be the exact settings. these option setting are crucial.
+        // I will add more info on these settings from the manual for MTCBA-C1-U-N3
+        private string initCommand = "AT+CNMI=2,2,0,1,0";
 
         private int BAUD = 115200;
         private String portName = null;
@@ -156,15 +121,13 @@ namespace AthenaCore
 
                 Thread.Sleep(1500);
 
+                doModemLog("ATE0", 0);
                 WriteToModem("ATE0");
-                //doModemLog("ATE0", 0);
-                //serialPort.Write("ATE0\r");
 
                 Thread.Sleep(900);
 
-                WriteToModem("AT+CNMI=2,2,0,1,0");
-                //doModemLog("AT+CNMI=2,2,0,1,0", 0);
-                //serialPort.Write("AT+CNMI=2,2,0,1,0\r");
+                doModemLog(initCommand, 0);
+                WriteToModem(initCommand);
 
                 installedProperly = true;
                 modemReady = true;
@@ -207,11 +170,6 @@ namespace AthenaCore
             }
         }
 
-        private void initModem()
-        {
-            
-
-        }
 
         void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs sdre)
         {
@@ -245,7 +203,11 @@ namespace AthenaCore
         public void ShutDown()
         {
             isReading = false;
-            serialPort.Close();
+            if (serialPort != null)
+            {
+                serialPort.Close();
+            }
+            
         }
 
 
@@ -265,18 +227,18 @@ namespace AthenaCore
 
                 if (isMockModem)
                 {
-                    Thread.Sleep(4000);
+                    Thread.Sleep(900);
                 }
                 else
                 {
-                    Thread.Sleep(2000);
+                    Thread.Sleep(600);
                 }
 
+                doModemLog(msg + CTRL_Z, 0);
                 WriteToModem(msg + CTRL_Z);
-                //doModemLog(msg + CTRL_Z, 0);
-                //serialPort.Write(msg + CTRL_Z);
 
-                //Thread.Sleep(1000);
+                Thread.Sleep(200);
+
                 modemReady = true;
                 offHook = false;
             }

@@ -47,17 +47,23 @@ namespace AthenaCLI
                         break;
                     case "users":
                         Console.WriteLine("\r\nUsers:");
+                        int regCount = 0;
                         int userCount = 0;
 
-                        Console.WriteLine("Connected Users...");
+                        Console.WriteLine("Registered Users...");
                         ArrayList list = mCore.mSqlDb.getUserList();
-                        foreach (object user in list)
+                        foreach (string user in list)
                         {
-                            // TODO
+                            Console.WriteLine("- " + user);
+                            regCount++;
+
+                        }
+                        if (regCount < 1)
+                        {
+                            Console.WriteLine("No Users Registered");
                         }
 
-
-                        Console.WriteLine("Connected Users...");
+                        Console.WriteLine("\r\nConnected Users...");
                         foreach (SockReciever receiver in mCore.mSocketManager.mRecievers)
                         {
                             Console.WriteLine(receiver.mUserName);
@@ -67,6 +73,7 @@ namespace AthenaCLI
                         {
                             Console.WriteLine("No Users Connected");
                         }
+
                         break;
                     case "status":
                         Console.WriteLine("Everything is Peachy!");

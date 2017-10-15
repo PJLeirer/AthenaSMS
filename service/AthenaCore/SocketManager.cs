@@ -24,32 +24,40 @@ namespace AthenaCore
         public SocketManager(Core core)
         {
             mCore = core;
+            doRun = true;
             mRecievers = new ArrayList();
             new Thread(looper).Start();
             new Thread(reclaim).Start();
         }
 
 
-        // still seems to have some bugs when releasing. does not release at all
         private void reclaim()
         {
             while (doRun)
             {
                 try
                 {
-
-                    for (int x = 0; x < mRecievers.Count; x++)
+                    lock (mRecievers.SyncRoot)
                     {
-                        SockReciever client = (SockReciever)mRecievers[x];
-                        if (client.deadClient || !client.mClient.Client.Connected || !client.mClient.Connected)
+                        for (int i = 0; i < mRecievers.Count; i++)
                         {
-                            mRecievers.Remove(x);
-                            x--;
+                            SockReciever reciever = (SockReciever)mRecievers[i];
+                            //if (reciever.mClient.Client.Connected && reciever.mClient.GetStream().CanWrite)
+                            //{
+                            //reciever.mClient.GetStream().WriteByte((byte)0);
+                            //}
+                            //Console.WriteLine("reciever: " + reciever.mClient.Client.ToString());
+                            if (reciever.deadClient || !reciever.mClient.Client.Connected)
+                            {
+                                Console.WriteLine("Disconnecting dead client");
+                                //client.mClient.GetStream().Close();
+                                reciever.mClient.Close();
+                                mRecievers.RemoveAt(i);
+                                break;
+                            }
                         }
                     }
-
-                    Thread.Sleep(200);
-
+                    Thread.Sleep(500);
                 }
                 catch (Exception e)
                 {
@@ -58,16 +66,42 @@ namespace AthenaCore
             }
         }
 
+        public bool KickConnection(int n)
+        {
+            bool X = false;
+            try
+            {
+
+                SockReciever rec = (SockReciever)mRecievers[n];
+                rec.doRun = false;
+                rec.mClient.GetStream().Close();
+                rec = null;
+                lock (mRecievers.SyncRoot)
+                {
+                    mRecievers.RemoveAt(n);
+                }
+                X = true;
+            }
+            catch (Exception e)
+            {
+                mCore.doEventLog("SocketManager.KickConnection: " + e.Message + "\r\n" + e.StackTrace, 0);
+            }
+            return X;
+        }
+
         private void looper()
         {
             try
             {
                 sockSrv = new TcpListener(IPAddress.Any, sockPort);
                 sockSrv.Start();
-                doRun = true;
                 while (doRun)
                 {
-                    mRecievers.Add(new SockReciever(mCore, sockSrv.AcceptTcpClient()));
+                    SockReciever reciever = new SockReciever(mCore, mRecievers, sockSrv.AcceptTcpClient());
+                    lock (mRecievers.SyncRoot)
+                    {
+                        mRecievers.Add(reciever);
+                    }
                 }
             }
             catch (Exception e)
@@ -79,11 +113,18 @@ namespace AthenaCore
         public ArrayList WhosOnline()
         {
             ArrayList userList = new ArrayList();
-            int i = 0;
-            foreach (SockReciever sr in mRecievers)
+            try
             {
-                userList.Add("User: " + sr.mUserName + " - Connection: " + i);
-                i++;
+                int i = 0;
+                foreach (SockReciever sr in mRecievers)
+                {
+                    userList.Add(sr.mUserName + "  -  conn:" + i);
+                    i++;
+                }
+            }
+            catch (Exception e)
+            {
+                mCore.doEventLog("SocketManager.WhosOnline: " + e.Message + "\r\n" + e.StackTrace, 2);
             }
             return userList;
         }
@@ -91,24 +132,26 @@ namespace AthenaCore
         public void ShutDown()
         {
             doRun = false;
-            for (int i = 0; i < mRecievers.Count; i++)
+            try
             {
-                if (mRecievers[i] != null)
+                lock (mRecievers.SyncRoot)
                 {
-                    SockReciever r = (SockReciever)mRecievers[i];
-                    r.doRun = false;
-                    try
+                    for (int i = 0; i < mRecievers.Count; i++)
                     {
-                        r.mClient.Client.Shutdown(SocketShutdown.Both);
-                        r.mClient.Client.Disconnect(true);
-                        r.mClient.Close();
-
-                    }
-                    catch (Exception e)
-                    {
-                        mCore.doEventLog("SocketManager.looper: " + e.Message + "\r\n" + e.StackTrace, 1);
+                        if (mRecievers[i] != null)
+                        {
+                            SockReciever r = (SockReciever)mRecievers[i];
+                            r.doRun = false;
+                            r.mClient.Client.Shutdown(SocketShutdown.Both);
+                            r.mClient.Client.Disconnect(true);
+                            r.mClient.Close();
+                        }
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                mCore.doEventLog("SocketManager.looper: " + e.Message + "\r\n" + e.StackTrace, 1);
             }
 
             //sockSrv.Server.Shutdown(SocketShutdown.Both);

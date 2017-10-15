@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Groups
+ * 
+ * just sends group messages, may be moved to ModemManager soon
+ * 
+ */
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +18,18 @@ namespace AthenaCore
     {
 
         private ArrayList groupTexts;
-        private String[] textGroups;// = { "Clevnet", "Techs", "Auto", "Staff" };
 
-        public void textGroup(int g, String msg)
+        private Core mCore;
+
+        public Groups(Core core)
         {
-            /*
-            textGroups = Program.mSqlDb.getGroupList();
-            ArrayList cg = Program.mSqlDb.getContactGroup(textGroups[g]);
+            mCore = core;
+        }
+
+        public bool textGroup(string g, String msg)
+        {
+            bool X = false;
+            ArrayList cg = mCore.mSqlDb.getContactGroup(g);
             if (cg != null)
             {
                 groupTexts = new ArrayList();
@@ -29,10 +41,10 @@ namespace AthenaCore
                         groupTexts.Add(row);
                     }
                 }
-                String[] what = { "sysmsg", textGroups[g] + " Group Texts" };
-                Program.mModemManager.addToOutgoingMessages(groupTexts, what);
-             
-            }*/
+                String[] what = { "sysmsg", g + " Group Text sent to '" + g + "' group\n\n" + msg };
+                X = mCore.mModemManager.addToAndProcessOutgoingMessages(groupTexts, what);
+            }
+            return X;
         }
 
 
