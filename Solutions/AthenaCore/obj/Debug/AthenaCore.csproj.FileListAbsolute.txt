@@ -3,3 +3,8 @@ C:\Program Files (x86)\Git\source\AthenaSMS\service\AthenaCore\bin\Debug\AthenaC
 C:\Program Files (x86)\Git\source\AthenaSMS\service\AthenaCore\obj\Debug\AthenaCore.dll
 C:\Program Files (x86)\Git\source\AthenaSMS\service\AthenaCore\obj\Debug\AthenaCore.pdb
 C:\Program Files (x86)\Git\source\AthenaSMS\service\AthenaCore\obj\Debug\AthenaCore.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaCore\bin\Debug\AthenaCore.dll
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaCore\bin\Debug\AthenaCore.pdb
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaCore\obj\Debug\AthenaCore.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaCore\obj\Debug\AthenaCore.dll
+C:\Program Files (x86)\Git\source\AthenaSMS\Solutions\AthenaCore\obj\Debug\AthenaCore.pdb
