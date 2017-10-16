@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="@drawable/bluewave"
+>
+	
+	<TableRow
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:gravity="center"
+	    >
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/config_title"
+		    android:textSize="24sp"
+		    android:textColor="#cdf8f2"
+		    />
+		<TextView/>
+	</TableRow>
+	
+	<TableRow
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:gravity="center"
+	    >
+		<TextView
+			android:text="@string/config_host"
+			android:textSize="18sp"
+			android:textColor="#cdf8f2"
+		/>
+	</TableRow>
+	
+	<TableRow
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:gravity="center"
+	    >
+		<EditText
+			android:id="@+id/hostentry"
+			android:textColor="#000000"
+			android:layout_width="90dip"
+			android:layout_height="wrap_content"
+			android:inputType="text"
+			android:hint="@string/config_host"
+		/>
+	</TableRow>
+	
+	<TableRow
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:gravity="center"
+	    >
+		<Button
+			android:id="@+id/createbutton"
+			android:text="@string/config_create"
+        	style="@style/black_wide_buttons"
+		/>
+	</TableRow>
+  
+</TableLayout>
