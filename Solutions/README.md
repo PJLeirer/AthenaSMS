@@ -11,5 +11,6 @@ Installation:
   6. Run CLI exe again. If your database and credentials are all setup correctly, tables will be created. If database errors happen, the        console output should help you identify errors, fix probelms & repeat this step.
   7. IF all goes well, you should see a comand prompt ('Athena >'), enter 'help'.
   8. Once Everything is working with the CLI version. you can then install the service with 'installutil'.
-  9. check your event logs for output from Athena.
-  10. Enjoy!
+  9. Optionally, check your event logs for output from Athena.
+  10. Run AthenaConsole.exe for Administrative Console
+  11. Enjoy!
